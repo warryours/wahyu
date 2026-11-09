@@ -48,7 +48,7 @@
                 },
                 {
                     "name": "Sate Ayam",
-                    "image": "assets/menu/ayam-sate.png"
+                    "image": "assets/menu/ayam-sate.jpg"
                 },
                 {
                     "name": "Ayam Lada Hitam",
@@ -118,11 +118,11 @@
             "items": [
                 {
                     "name": "Ikan Bakar Dabu-Dabu",
-                    "image": "assets/menu/ikan-bakar-dabu-dabu.png"
+                    "image": "assets/menu/ikan-bakar-dabu-dabu.jpg"
                 },
                 {
                     "name": "Ikan Goreng Rica",
-                    "image": "assets/menu/ikan-goreng-rica.png"
+                    "image": "assets/menu/ikan-goreng-rica.jpg"
                 }
             ]
         },
