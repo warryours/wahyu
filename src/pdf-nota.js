@@ -153,13 +153,13 @@ function render(s, H, hasLogo) {
   text(M + 6, ry, s.paket_nama, { f: 'F2', size: 9 });
   text(M + 210, ry, s.jumlah + ' porsi', { size: 9, align: 'r' }); text(M + 272, ry, rp(s.harga), { size: 9, align: 'r' }); text(PW - M - 6, ry, rp(total), { f: 'F2', size: 9, align: 'r' });
   if (s.pilihan_menu) wrap(s.pilihan_menu, 'F1', 7.5, 165).forEach((l) => { ry += 10.5; text(M + 6, ry, l, { size: 7.5, color: GRAY }); });
-  ry += 9; line(M, ry, PW - M, ry, LINE, 0.8);
-
   const isi = isiPaket(s.paket_nama);
+  
   if (isi.length) {
     ry += 12; text(M + 6, ry, 'Sudah termasuk:', { f: 'F2', size: 7.5, color: GRAY });
-    wrap(isi.join(', '), 'F1', 7.5, 165).forEach((l) => { ry += 10.5; text(M + 6, ry, l, { size: 7.5, color: GRAY }); });
+    wrap(isi.join(', '), 'F1', 7.5, 190).forEach((l) => { ry += 10.5; text(M + 6, ry, l, { size: 7.5, color: GRAY }); });
   }
+  ry += 9; line(M, ry, PW - M, ry, LINE, 0.8);
 
   /* ringkasan */
   y = ry + 16; const sx = PW - M - 250, sr = PW - M;

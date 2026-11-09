@@ -11,19 +11,19 @@
   /* Isi tetap tiap paket. "cari" = potongan nama paket (huruf kecil, tanpa spasi/simbol). */
   var PAKET_ISI = [
     /* ===== PRASMANAN (menu pilihan pelanggan tampil di pilihan_menu) ===== */
-    { cari: ['paket1', 'paket27'], isi: ['Nasi Putih', 'Air', 'Es Buah', 'Service'] },
-    { cari: ['paket2', 'paket30kpax'], isi: ['Nasi Putih', 'Kerupuk', 'Air', 'Es Buah', 'Service'] },
-    { cari: ['paket3'], isi: ['Nasi Putih', 'Daging (Sambal Goreng)', 'Air', 'Es Buah', 'Service'] },
-    { cari: ['paket4'], isi: ['Nasi Putih', 'Kerupuk', 'Air', 'Es Buah', 'Service'] },
-    { cari: ['paket5'], isi: ['Nasi Putih', 'Kerupuk', 'Air', 'Es Buah', 'Service'] },
-    { cari: ['paket6', 'kapurung'], isi: ['Nasi Putih', 'Ikan Bakar', 'Paredi Ikan/Ayam', 'Lawa Pakis/Jantung', 'Cobe-Cobe', 'Dange', 'Es Buah', 'Air'] },
-    { cari: ['paket7', 'bakso'], isi: ['Buras', 'Telur', 'Pentolan', 'Air'] },
+    { cari: ['paket1', 'paket27'], isi: ['Nasi Putih', 'Air Mineral', 'Service'] },
+    { cari: ['paket2', 'paket30kpax'], isi: ['Nasi Putih', 'Kerupuk', 'Air Mineral', 'Service'] },
+    { cari: ['paket3'], isi: ['Nasi Putih', 'Daging (Sambal Goreng)', 'Air Mineral', 'Service'] },
+    { cari: ['paket4'], isi: ['Nasi Putih', 'Kerupuk', 'Air Mineral', 'Service'] },
+    { cari: ['paket5'], isi: ['Nasi Putih', 'Kerupuk', 'Air Mineral', 'Service'] },
+    { cari: ['paket6', 'kapurung'], isi: ['Nasi Putih', 'Ikan Bakar', 'Paredi Ikan/Ayam', 'Lawa Pakis/Jantung', 'Cobe-Cobe', 'Dange', 'Air Mineral'] },
+    { cari: ['paket7', 'bakso'], isi: ['Buras', 'Telur', 'Pentolan', 'Air Mineral'] },
     /* ===== NASI KOTAK ===== */
     { cari: ['18000', '18rb', '18k'], isi: ['Nasi', 'Sayur', 'Ayam', 'Tempe', 'Air Mineral'] },
     { cari: ['20000', '20rb', '20k'], isi: ['Nasi', 'Ayam', 'Sayur', 'Telur', 'Gorengan', 'Air Mineral'] },
-    { cari: ['25000', '25rb', '25k'], isi: ['Nasi', 'Pilihan Ayam', 'Sayur', 'Kerupuk', 'Buah/Air'] },
+    { cari: ['25000', '25rb', '25k'], isi: ['Nasi', 'Pilihan Ayam', 'Sayur', 'Kerupuk', 'Buah/Air Mineral'] },
     { cari: ['28000', '28rb', '28k'], isi: ['Pilihan Utama: Olahan Daging atau Udang', 'Nasi', 'Sayur', 'Gorengan', 'Kerupuk', 'Air Mineral'] },
-    { cari: ['30000', '30rb', '30k'], isi: ['Spesial: Isian Kue', 'Nasi', 'Pilihan Daging/Ayam', 'Sayur', 'Kerupuk', 'Buah', 'Air'] }
+    { cari: ['30000', '30rb', '30k'], isi: ['Spesial: Isian Kue', 'Nasi', 'Pilihan Daging/Ayam', 'Sayur', 'Kerupuk', 'Buah', 'Air Mineral'] }
   ];
   function isiPaket(nama) {
     var n = String(nama || '').toLowerCase().replace(/[^a-z0-9]/g, '');
@@ -94,6 +94,7 @@
       (o.pilihan_menu ? '<span class="menu">' + esc(o.pilihan_menu) + '</span>' : '') +
       (isiPaket(o.paket_nama).length ? '<span class="menu"><b>Sudah termasuk:</b> ' + esc(isiPaket(o.paket_nama).join(', ')) + '</span>' : '') +
       '</td><td class="r">' + o.jumlah + ' porsi</td><td class="r">' + rp(o.harga) + '</td><td class="r">' + rp(total) + '</td></tr></tbody></table>' +
+      '<div class="sum">' + rows + '</div>' +
       '<p class="terbilang">Terbilang: ' + esc(terbilang(terima)) + ' rupiah</p>' +
       '<div class="pay"><h3>Informasi Pembayaran</h3><div><span>Bank</span><b>' + esc(PEMBAYARAN.bank) + '</b></div><div><span>No. Rekening</span><b>' + esc(PEMBAYARAN.rekening) + '</b></div><div><span>Atas Nama</span><b>' + esc(PEMBAYARAN.atasNama) + '</b></div></div>' +
       '<p class="note">' + (isDp ? 'DP untuk menyimpan tanggal acara. Pelunasan dilakukan pada hari H.' : 'Mohon lakukan pelunasan sesuai jumlah tagihan di atas. Terima kasih atas kepercayaan Anda.') + '</p>' +
