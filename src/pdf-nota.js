@@ -130,6 +130,12 @@ function render(s, H, hasLogo) {
   if (s.pilihan_menu) wrap(s.pilihan_menu, 'F1', 7.5, 165).forEach((l) => { ry += 10.5; text(M + 6, ry, l, { size: 7.5, color: GRAY }); });
   ry += 9; line(M, ry, PW - M, ry, LINE, 0.8);
 
+  const isi = isiPaket(s.paket_nama);
+  if (isi.length) {
+    ry += 12; text(M + 6, ry, 'Sudah termasuk:', { f: 'F2', size: 7.5, color: GRAY });
+    wrap(isi.join(', '), 'F1', 7.5, 165).forEach((l) => { ry += 10.5; text(M + 6, ry, l, { size: 7.5, color: GRAY }); });
+  }
+
   /* ringkasan */
   y = ry + 16; const sx = PW - M - 250, sr = PW - M;
   const row = (label, val, big) => {

@@ -7,6 +7,32 @@
   };
   var WA_BUKTI = '0895325916029'; /* nomor WhatsApp untuk kirim bukti bayar */
   /* ======================================= */
+
+  /* Isi tetap tiap paket. "cari" = potongan nama paket (huruf kecil, tanpa spasi/simbol). */
+  var PAKET_ISI = [
+    /* ===== PRASMANAN (menu pilihan pelanggan tampil di pilihan_menu) ===== */
+    { cari: ['paket1', 'paket27'], isi: ['Nasi Putih', 'Air', 'Es Buah', 'Service'] },
+    { cari: ['paket2', 'paket30kpax'], isi: ['Nasi Putih', 'Kerupuk', 'Air', 'Es Buah', 'Service'] },
+    { cari: ['paket3'], isi: ['Nasi Putih', 'Daging (Sambal Goreng)', 'Air', 'Es Buah', 'Service'] },
+    { cari: ['paket4'], isi: ['Nasi Putih', 'Kerupuk', 'Air', 'Es Buah', 'Service'] },
+    { cari: ['paket5'], isi: ['Nasi Putih', 'Kerupuk', 'Air', 'Es Buah', 'Service'] },
+    { cari: ['paket6', 'kapurung'], isi: ['Nasi Putih', 'Ikan Bakar', 'Paredi Ikan/Ayam', 'Lawa Pakis/Jantung', 'Cobe-Cobe', 'Dange', 'Es Buah', 'Air'] },
+    { cari: ['paket7', 'bakso'], isi: ['Buras', 'Telur', 'Pentolan', 'Air'] },
+    /* ===== NASI KOTAK ===== */
+    { cari: ['18000', '18rb', '18k'], isi: ['Nasi', 'Sayur', 'Ayam', 'Tempe', 'Air Mineral'] },
+    { cari: ['20000', '20rb', '20k'], isi: ['Nasi', 'Ayam', 'Sayur', 'Telur', 'Gorengan', 'Air Mineral'] },
+    { cari: ['25000', '25rb', '25k'], isi: ['Nasi', 'Pilihan Ayam', 'Sayur', 'Kerupuk', 'Buah/Air'] },
+    { cari: ['28000', '28rb', '28k'], isi: ['Pilihan Utama: Olahan Daging atau Udang', 'Nasi', 'Sayur', 'Gorengan', 'Kerupuk', 'Air Mineral'] },
+    { cari: ['30000', '30rb', '30k'], isi: ['Spesial: Isian Kue', 'Nasi', 'Pilihan Daging/Ayam', 'Sayur', 'Kerupuk', 'Buah', 'Air'] }
+  ];
+  function isiPaket(nama) {
+    var n = String(nama || '').toLowerCase().replace(/[^a-z0-9]/g, '');
+    for (var i = 0; i < PAKET_ISI.length; i++)
+      for (var j = 0; j < PAKET_ISI[i].cari.length; j++)
+        if (n.indexOf(PAKET_ISI[i].cari[j]) >= 0) return PAKET_ISI[i].isi;
+    return [];
+  }
+
   var params = new URLSearchParams(location.search), id = parseInt(params.get('id'), 10), type = params.get('type') === 'lunas' ? 'lunas' : 'dp';
   var $ = function (i) { return document.getElementById(i) };
   function esc(s) { return String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;') }
@@ -65,8 +91,8 @@
       '<div class="meta"><div><h3>Pemesan</h3><p><b>' + esc(o.nama) + '</b></p><p>' + esc(phone(o.whatsapp)) + '</p><p>' + esc(o.alamat) + '</p></div>' +
       '<div><h3>Acara</h3><p><b>' + esc(o.acara) + '</b></p><p>' + day(o.tanggal_acara) + '</p><p>Pesanan: ' + esc(o.code) + '</p></div></div>' +
       '<table><thead><tr><th>Deskripsi</th><th class="r">Qty</th><th class="r">Harga</th><th class="r">Jumlah</th></tr></thead><tbody><tr><td>' + esc(o.paket_nama) +
-      (o.pilihan_menu ? '<span class="menu">' + esc(o.pilihan_menu) + '</span>' : '') + '</td><td class="r">' + o.jumlah + ' porsi</td><td class="r">' + rp(o.harga) + '</td><td class="r">' + rp(total) + '</td></tr></tbody></table>' +
-      '<div class="sum">' + rows + '</div>' +
+      (o.pilihan_menu ? '<span class="menu">' + esc(o.pilihan_menu) + '</span>' : '') +
+      (isiPaket(o.paket_nama).length ? '<span class="menu"><b>Sudah termasuk:</b> ' + esc(isiPaket(o.paket_nama).join(', ')) + '</span>' : '') +
       '<p class="terbilang">Terbilang: ' + esc(terbilang(terima)) + ' rupiah</p>' +
       '<div class="pay"><h3>Informasi Pembayaran</h3><div><span>Bank</span><b>' + esc(PEMBAYARAN.bank) + '</b></div><div><span>No. Rekening</span><b>' + esc(PEMBAYARAN.rekening) + '</b></div><div><span>Atas Nama</span><b>' + esc(PEMBAYARAN.atasNama) + '</b></div></div>' +
       '<p class="note">' + (isDp ? 'DP untuk menyimpan tanggal acara. Pelunasan dilakukan pada hari H.' : 'Mohon lakukan pelunasan sesuai jumlah tagihan di atas. Terima kasih atas kepercayaan Anda.') + '</p>' +
