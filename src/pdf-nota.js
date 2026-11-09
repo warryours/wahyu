@@ -45,6 +45,31 @@ function wrap(s, f, size, maxW) {
   return out;
 }
 
+/* Isi tetap tiap paket. "cari" = potongan nama paket (huruf kecil, tanpa spasi/simbol). */
+var PAKET_ISI = [
+  /* ===== PRASMANAN (menu pilihan pelanggan tampil di pilihan_menu) ===== */
+  { cari: ['paket1', 'paket27'], isi: ['Nasi Putih', 'Air', 'Es Buah', 'Service'] },
+  { cari: ['paket2', 'paket30kpax'], isi: ['Nasi Putih', 'Kerupuk', 'Air', 'Es Buah', 'Service'] },
+  { cari: ['paket3'], isi: ['Nasi Putih', 'Daging (Sambal Goreng)', 'Air', 'Es Buah', 'Service'] },
+  { cari: ['paket4'], isi: ['Nasi Putih', 'Kerupuk', 'Air', 'Es Buah', 'Service'] },
+  { cari: ['paket5'], isi: ['Nasi Putih', 'Kerupuk', 'Air', 'Es Buah', 'Service'] },
+  { cari: ['paket6', 'kapurung'], isi: ['Nasi Putih', 'Ikan Bakar', 'Paredi Ikan/Ayam', 'Lawa Pakis/Jantung', 'Cobe-Cobe', 'Dange', 'Es Buah', 'Air'] },
+  { cari: ['paket7', 'bakso'], isi: ['Buras', 'Telur', 'Pentolan', 'Air'] },
+  /* ===== NASI KOTAK ===== */
+  { cari: ['18000', '18rb', '18k'], isi: ['Nasi', 'Sayur', 'Ayam', 'Tempe', 'Air Mineral'] },
+  { cari: ['20000', '20rb', '20k'], isi: ['Nasi', 'Ayam', 'Sayur', 'Telur', 'Gorengan', 'Air Mineral'] },
+  { cari: ['25000', '25rb', '25k'], isi: ['Nasi', 'Pilihan Ayam', 'Sayur', 'Kerupuk', 'Buah/Air'] },
+  { cari: ['28000', '28rb', '28k'], isi: ['Pilihan Utama: Olahan Daging atau Udang', 'Nasi', 'Sayur', 'Gorengan', 'Kerupuk', 'Air Mineral'] },
+  { cari: ['30000', '30rb', '30k'], isi: ['Spesial: Isian Kue', 'Nasi', 'Pilihan Daging/Ayam', 'Sayur', 'Kerupuk', 'Buah', 'Air'] }
+];
+function isiPaket(nama) {
+  var n = String(nama || '').toLowerCase().replace(/[^a-z0-9]/g, '');
+  for (var i = 0; i < PAKET_ISI.length; i++)
+    for (var j = 0; j < PAKET_ISI[i].cari.length; j++)
+      if (n.indexOf(PAKET_ISI[i].cari[j]) >= 0) return PAKET_ISI[i].isi;
+  return [];
+}
+
 /* ---------- Terbilang & format ---------- */
 function terbilang(n) {
   const s = ['', 'satu', 'dua', 'tiga', 'empat', 'lima', 'enam', 'tujuh', 'delapan', 'sembilan', 'sepuluh', 'sebelas']; n = Math.floor(n);
