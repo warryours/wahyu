@@ -93,6 +93,7 @@
       '<table><thead><tr><th>Deskripsi</th><th class="r">Qty</th><th class="r">Harga</th><th class="r">Jumlah</th></tr></thead><tbody><tr><td>' + esc(o.paket_nama) +
       (o.pilihan_menu ? '<span class="menu">' + esc(o.pilihan_menu) + '</span>' : '') +
       (isiPaket(o.paket_nama).length ? '<span class="menu"><b>Sudah termasuk:</b> ' + esc(isiPaket(o.paket_nama).join(', ')) + '</span>' : '') +
+      '</td><td class="r">' + o.jumlah + ' porsi</td><td class="r">' + rp(o.harga) + '</td><td class="r">' + rp(total) + '</td></tr></tbody></table>' +
       '<p class="terbilang">Terbilang: ' + esc(terbilang(terima)) + ' rupiah</p>' +
       '<div class="pay"><h3>Informasi Pembayaran</h3><div><span>Bank</span><b>' + esc(PEMBAYARAN.bank) + '</b></div><div><span>No. Rekening</span><b>' + esc(PEMBAYARAN.rekening) + '</b></div><div><span>Atas Nama</span><b>' + esc(PEMBAYARAN.atasNama) + '</b></div></div>' +
       '<p class="note">' + (isDp ? 'DP untuk menyimpan tanggal acara. Pelunasan dilakukan pada hari H.' : 'Mohon lakukan pelunasan sesuai jumlah tagihan di atas. Terima kasih atas kepercayaan Anda.') + '</p>' +
