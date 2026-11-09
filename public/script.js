@@ -33,7 +33,7 @@
     if (it.note) return it.note;
     var o = optsOf(it);
     var g = groupsOf(it);
-    if (g) return 'Pilih ' + g.map(function (x) { return x.label }).join(' atau ') + ', lalu nama masakannya';
+    if (g) return 'Pilih ' + g.map(function (x) { return x.label }).join(' atau ');
     return o ? 'Pilih: ' + o.join(' / ') : '';
   }
 
