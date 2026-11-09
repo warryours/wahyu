@@ -1,0 +1,3 @@
+# Salin menjadi .dev.vars untuk menjalankan lokal (npm run dev). JANGAN di-commit/diupload.
+ADMIN_PASSWORD=ganti-dengan-password-kuat
+SESSION_SECRET=ganti-dengan-string-acak-panjang

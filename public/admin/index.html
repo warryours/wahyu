@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex,nofollow" />
+    <meta name="theme-color" content="#800F19" />
+    <title>Admin — Wahyu Catering</title>
+    <link rel="icon" href="../assets/logo.png" />
+    <link rel="stylesheet" href="admin.css?v=4" />
+  </head>
+  <body>
+    <section id="login" class="login" hidden>
+      <form id="login-form" class="box">
+        <img src="../assets/logo.png" alt="" width="72" height="72" />
+        <h1>Admin Pesanan</h1>
+        <label for="pw">Password</label>
+        <input id="pw" type="password" autocomplete="current-password" required />
+        <p id="login-err" class="err" role="alert"></p>
+        <button class="btn" type="submit">Masuk</button>
+      </form>
+    </section>
+
+    <div id="app" hidden>
+      <header class="top">
+        <h1>Pesanan Wahyu Catering</h1>
+        <div class="top-actions">
+          <a class="btn ghost" id="csv" href="/api/admin/export.csv">Ekspor CSV</a>
+          <button class="btn ghost" id="logout" type="button">Keluar</button>
+        </div>
+      </header>
+      <main>
+        <div class="stats" id="stats"></div>
+        <div class="tools">
+          <div class="tabs" id="tabs" role="group" aria-label="Filter status"></div>
+          <input id="search" type="search" placeholder="Cari nama, kode, nomor, acara" aria-label="Cari pesanan" />
+        </div>
+        <p id="empty" class="empty" hidden>Belum ada pesanan.</p>
+        <div id="orders"></div>
+      </main>
+    </div>
+    <script src="admin.js?v=4"></script>
+  </body>
+</html>

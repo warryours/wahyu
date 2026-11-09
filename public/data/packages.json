@@ -1,0 +1,653 @@
+{
+ "prasmanan": [
+  {
+   "id": "p1",
+   "name": "Paket 1",
+   "price": 27000,
+   "items": [
+    {
+     "name": "Nasi Putih"
+    },
+    {
+     "name": "Sup / Sayur",
+     "options": [
+      "Sup Daging Kacang Merah",
+      "Sup Kimlo",
+      "Sup Ayam Kampung",
+      "Capcay Udang",
+      "Gambung Paria"
+     ]
+    },
+    {
+     "name": "Ayam",
+     "menu": "B"
+    },
+    {
+     "name": "Telur / Udang",
+     "menu": "C"
+    },
+    {
+     "name": "Mie / Bihun",
+     "menu": "H"
+    },
+    {
+     "name": "Air"
+    },
+    {
+     "name": "Es Buah",
+     "menu": "F"
+    },
+    {
+     "name": "Service"
+    }
+   ]
+  },
+  {
+   "id": "p2",
+   "name": "Paket 2",
+   "price": 30000,
+   "items": [
+    {
+     "name": "Nasi Putih"
+    },
+    {
+     "name": "Sup / Sayur",
+     "menu": "I"
+    },
+    {
+     "name": "Ayam",
+     "menu": "B"
+    },
+    {
+     "name": "Telur / Udang",
+     "menu": "C"
+    },
+    {
+     "name": "Mie / Bihun",
+     "menu": "H"
+    },
+    {
+     "name": "Acar / Asinan",
+     "menu": "E"
+    },
+    {
+     "name": "Kerupuk"
+    },
+    {
+     "name": "Air"
+    },
+    {
+     "name": "Es Buah",
+     "menu": "F"
+    },
+    {
+     "name": "Service"
+    }
+   ]
+  },
+  {
+   "id": "p3",
+   "name": "Paket 3",
+   "price": 32000,
+   "items": [
+    {
+     "name": "Nasi Putih"
+    },
+    {
+     "name": "Sup / Sayur",
+     "menu": "I"
+    },
+    {
+     "name": "Ayam",
+     "menu": "B"
+    },
+    {
+     "name": "Telur / Udang",
+     "menu": "C"
+    },
+    {
+     "name": "Daging",
+     "note": "Sambal Goreng"
+    },
+    {
+     "name": "Mie / Bihun",
+     "menu": "H"
+    },
+    {
+     "name": "Acar / Asinan",
+     "menu": "E"
+    },
+    {
+     "name": "Air"
+    },
+    {
+     "name": "Es Buah",
+     "menu": "F"
+    },
+    {
+     "name": "Service"
+    }
+   ]
+  },
+  {
+   "id": "p4",
+   "name": "Paket 4",
+   "price": 35000,
+   "items": [
+    {
+     "name": "Nasi Putih"
+    },
+    {
+     "name": "Sup / Sayur",
+     "menu": "I"
+    },
+    {
+     "name": "Ayam",
+     "menu": "B"
+    },
+    {
+     "name": "Telur / Udang",
+     "menu": "C"
+    },
+    {
+     "name": "Daging",
+     "menu": "A"
+    },
+    {
+     "name": "Mie / Bihun",
+     "menu": "H"
+    },
+    {
+     "name": "Acar / Asinan",
+     "menu": "E"
+    },
+    {
+     "name": "Kerupuk"
+    },
+    {
+     "name": "Air"
+    },
+    {
+     "name": "Es Buah",
+     "menu": "F"
+    },
+    {
+     "name": "Service"
+    }
+   ]
+  },
+  {
+   "id": "p5",
+   "name": "Paket 5",
+   "price": 37000,
+   "items": [
+    {
+     "name": "Nasi Putih"
+    },
+    {
+     "name": "Sup / Sayur",
+     "menu": "I"
+    },
+    {
+     "name": "Ayam",
+     "menu": "B"
+    },
+    {
+     "name": "Telur / Udang",
+     "menu": "C"
+    },
+    {
+     "name": "Daging",
+     "menu": "A"
+    },
+    {
+     "name": "Ikan Bakar",
+     "menu": "D"
+    },
+    {
+     "name": "Mie / Bihun",
+     "menu": "H"
+    },
+    {
+     "name": "Acar / Asinan",
+     "menu": "E"
+    },
+    {
+     "name": "Kerupuk"
+    },
+    {
+     "name": "Air"
+    },
+    {
+     "name": "Es Buah",
+     "menu": "F"
+    },
+    {
+     "name": "Service"
+    }
+   ]
+  },
+  {
+   "id": "p6",
+   "name": "Paket 6 · Kapurung",
+   "price": 40000,
+   "badge": "Menu khas",
+   "items": [
+    {
+     "name": "Nasi Putih"
+    },
+    {
+     "name": "Kapurung",
+     "options": [
+      "Ayam",
+      "Ikan",
+      "Udang",
+      "Daging"
+     ]
+    },
+    {
+     "name": "Ikan Bakar"
+    },
+    {
+     "name": "Paredde",
+     "options": [
+      "Ikan",
+      "Ayam"
+     ]
+    },
+    {
+     "name": "Lawa",
+     "options": [
+      "Pakis",
+      "Jantung"
+     ]
+    },
+    {
+     "name": "Cobe-Cobe"
+    },
+    {
+     "name": "Dange"
+    },
+    {
+     "name": "Es Buah",
+     "menu": "F"
+    },
+    {
+     "name": "Air"
+    }
+   ]
+  },
+  {
+   "id": "p7",
+   "name": "Paket 7 · Bakso",
+   "price": 25000,
+   "items": [
+    {
+     "name": "Buras"
+    },
+    {
+     "name": "Telur / Udang",
+     "menu": "C"
+    },
+    {
+     "name": "Pentolan"
+    },
+    {
+     "name": "Air"
+    }
+   ]
+  }
+ ],
+ "nasikotak": [
+  {
+   "id": "k18",
+   "name": "Paket Hemat",
+   "tag": "Kemasan Steroform",
+   "price": 18000,
+   "items": [
+    {
+     "name": "Nasi"
+    },
+    {
+     "name": "Sayur"
+    },
+    {
+     "name": "Ayam",
+     "menu": "B"
+    },
+    {
+     "name": "Tempe"
+    },
+    {
+     "name": "Air Mineral"
+    }
+   ]
+  },
+  {
+   "id": "k20",
+   "name": "Paket Hemat Plus",
+   "tag": "Kemasan Steroform",
+   "price": 20000,
+   "items": [
+    {
+     "name": "Nasi"
+    },
+    {
+     "name": "Ayam",
+     "menu": "B"
+    },
+    {
+     "name": "Sayur"
+    },
+    {
+     "name": "Telur / Udang",
+     "menu": "C"
+    },
+    {
+     "name": "Gorengan"
+    },
+    {
+     "name": "Air Mineral"
+    }
+   ]
+  },
+  {
+   "id": "k25",
+   "name": "Paket Premium 25",
+   "tag": "Kotak Eksklusif",
+   "price": 25000,
+   "items": [
+    {
+     "name": "Nasi"
+    },
+    {
+     "name": "Ayam",
+     "menu": "B"
+    },
+    {
+     "name": "Sayur"
+    },
+    {
+     "name": "Kerupuk"
+    },
+    {
+     "name": "Buah / Air"
+    }
+   ]
+  },
+  {
+   "id": "k28",
+   "name": "Paket Premium 28",
+   "tag": "Kotak Eksklusif",
+   "price": 28000,
+   "items": [
+    {
+     "name": "Pilihan Utama",
+     "menu": "J"
+    },
+    {
+     "name": "Nasi"
+    },
+    {
+     "name": "Sayur"
+    },
+    {
+     "name": "Gorengan"
+    },
+    {
+     "name": "Kerupuk"
+    },
+    {
+     "name": "Air Mineral"
+    }
+   ]
+  },
+  {
+   "id": "k30",
+   "name": "Paket Spesial",
+   "tag": "Kotak Eksklusif",
+   "price": 30000,
+   "badge": "Isian kue",
+   "items": [
+    {
+     "name": "Spesial",
+     "note": "Sudah termasuk isian kue"
+    },
+    {
+     "name": "Nasi"
+    },
+    {
+     "name": "Daging / Ayam",
+     "menu": "K"
+    },
+    {
+     "name": "Sayur"
+    },
+    {
+     "name": "Kerupuk"
+    },
+    {
+     "name": "Buah"
+    },
+    {
+     "name": "Air"
+    }
+   ]
+  }
+ ],
+ "menu": [
+  {
+   "key": "A",
+   "name": "Daging",
+   "options": [
+    "Daging Kari",
+    "Daging Lada Hitam",
+    "Daging Rendang",
+    "Daging Sambal Goreng",
+    "Daging Semur",
+    "Daging Topa'Lada"
+   ]
+  },
+  {
+   "key": "B",
+   "name": "Ayam",
+   "options": [
+    "Ayam Fillet",
+    "Ayam Kecap",
+    "Ayam Lada Hitam",
+    "Ayam Likku",
+    "Ayam Nasu Kadundung",
+    "Ayam Opor",
+    "Ayam Rica-Rica",
+    "Ayam Sambal",
+    "Ayam Saus Mentega",
+    "Ayam Suwir",
+    "Sate Ayam"
+   ]
+  },
+  {
+   "key": "C",
+   "name": "Telur / Udang",
+   "options": [
+    "Telur Asam Manis",
+    "Telur Balado",
+    "Telur Fuyunghai",
+    "Udang Saus Padang",
+    "Udang Krispy Asam Manis",
+    "Udang Kentucky"
+   ],
+   "groups": [
+    {
+     "label": "Telur",
+     "options": [
+      "Telur Asam Manis",
+      "Telur Balado",
+      "Telur Fuyunghai"
+     ]
+    },
+    {
+     "label": "Udang",
+     "options": [
+      "Udang Saus Padang",
+      "Udang Krispy Asam Manis",
+      "Udang Kentucky"
+     ]
+    }
+   ]
+  },
+  {
+   "key": "D",
+   "name": "Ikan",
+   "options": [
+    "Ikan Bakar Dabu-Dabu",
+    "Ikan Bakar Racca Mangga",
+    "Ikan Goreng Rica"
+   ]
+  },
+  {
+   "key": "E",
+   "name": "Acar / Asinan",
+   "options": [
+    "Acar Bening",
+    "Acar Kampung/Kacang",
+    "Acar Nanas",
+    "Asinan Buah"
+   ]
+  },
+  {
+   "key": "F",
+   "name": "Es Buah",
+   "options": [
+    "Es Buah Kampung",
+    "Es Buah DHT",
+    "Es Buah Nanas",
+    "Es Buah Leci",
+    "Es Buah Melon"
+   ]
+  },
+  {
+   "key": "G",
+   "name": "Nasi",
+   "options": [
+    "Nasi Putih",
+    "Nasi Goreng"
+   ]
+  },
+  {
+   "key": "H",
+   "name": "Mie / Bihun",
+   "options": [
+    "Mie Goreng Jawa",
+    "Mie Goreng Kampung",
+    "Bihun Goreng"
+   ]
+  },
+  {
+   "key": "I",
+   "name": "Sup / Sayur",
+   "options": [
+    "Sup Daging Kacang Merah",
+    "Sup Kimlo",
+    "Sup Ayam Kampung",
+    "Capcay Udang",
+    "Gambung Paria"
+   ]
+  },
+  {
+   "key": "J",
+   "name": "Daging / Udang",
+   "groups": [
+    {
+     "label": "Daging",
+     "options": [
+      "Daging Lada Hitam",
+      "Daging Topa'Lada",
+      "Daging Sambal Goreng",
+      "Daging Rendang",
+      "Daging Semur",
+      "Daging Kari"
+     ]
+    },
+    {
+     "label": "Udang",
+     "options": [
+      "Udang Saus Padang",
+      "Udang Krispy Asam Manis",
+      "Udang Kentucky"
+     ]
+    }
+   ],
+   "options": [
+    "Daging Lada Hitam",
+    "Daging Topa'Lada",
+    "Daging Sambal Goreng",
+    "Daging Rendang",
+    "Daging Semur",
+    "Daging Kari",
+    "Udang Saus Padang",
+    "Udang Krispy Asam Manis",
+    "Udang Kentucky"
+   ]
+  },
+  {
+   "key": "K",
+   "name": "Daging / Ayam",
+   "groups": [
+    {
+     "label": "Daging",
+     "options": [
+      "Daging Lada Hitam",
+      "Daging Topa'Lada",
+      "Daging Sambal Goreng",
+      "Daging Rendang",
+      "Daging Semur",
+      "Daging Kari"
+     ]
+    },
+    {
+     "label": "Ayam",
+     "options": [
+      "Ayam Kecap",
+      "Ayam Sambal",
+      "Ayam Suwir",
+      "Sate Ayam",
+      "Ayam Lada Hitam",
+      "Ayam Goreng Mentega",
+      "Ayam Fillet",
+      "Ayam Rica-Rica",
+      "Ayam Opor",
+      "Ayam Nasu Kadundung"
+     ]
+    }
+   ],
+   "options": [
+    "Daging Lada Hitam",
+    "Daging Topa'Lada",
+    "Daging Sambal Goreng",
+    "Daging Rendang",
+    "Daging Semur",
+    "Daging Kari",
+    "Ayam Kecap",
+    "Ayam Sambal",
+    "Ayam Suwir",
+    "Sate Ayam",
+    "Ayam Lada Hitam",
+    "Ayam Goreng Mentega",
+    "Ayam Fillet",
+    "Ayam Rica-Rica",
+    "Ayam Opor",
+    "Ayam Nasu Kadundung"
+   ]
+  }
+ ],
+ "bonus": [
+  "Free cermin cembung untuk acara wedding",
+  "Free WCC (Wedding Content Creator) untuk 1000 porsi",
+  "Free bakso untuk 1000 porsi",
+  "Free aneka kue minimal 200 porsi",
+  "Free aneka kue dan buah potong untuk 500 porsi",
+  "Free aneka kue, buah potong dan minuman kekinian untuk 700 porsi",
+  "Free aneka kue, buah potong, minuman kekinian dan bakso 100 porsi untuk orderan 1000 porsi",
+  "Order 1000 porsi free 100 mangkok bakso"
+ ]
+}

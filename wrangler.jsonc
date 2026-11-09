@@ -1,0 +1,50 @@
+{
+	"$schema": "node_modules/wrangler/config-schema.json",
+	"name": "wahyucatering",
+	"main": "src/worker.js",
+	"compatibility_date": "2025-11-01",
+	// Website (HTML/CSS/JS/gambar) dilayani langsung dari folder public/.
+	// Worker hanya dijalankan untuk /api/* dan /n/* (nota PDF).
+	"assets": {
+		"directory": "./public",
+		"binding": "ASSETS",
+		"run_worker_first": [
+			"/api/*",
+			"/n/*"
+		]
+	},
+	// Database pesanan. Isi database_id dengan hasil `npx wrangler d1 create wahyucatering-db`.
+	"d1_databases": [
+		{
+			"binding": "DB",
+			"database_name": "wahyucatering-db",
+			"database_id": "GANTI-DENGAN-DATABASE-ID"
+		},
+		{
+			"binding": "wahyucatering_db",
+			"database_name": "wahyucatering-db",
+			"database_id": "d2635e84-ca28-46e8-82ed-cb11d9b6303a",
+			"remote": true
+		}
+	],
+	// Domain Anda. Jalankan: node scripts/set-domain.mjs namadomain.com
+	// (hapus baris "www." jika memakai subdomain, mis. catering.namadomain.com)
+	"routes": [
+		{
+			"pattern": "wahyucatering.com",
+			"custom_domain": true
+		},
+		{
+			"pattern": "www.wahyucatering.com",
+			"custom_domain": true
+		}
+	],
+	// Dipakai untuk link nota PDF yang dikirim ke pelanggan.
+	"vars": {
+		"PUBLIC_URL": "https://wahyucatering.com"
+	},
+	// Secret (tidak ditulis di sini): ADMIN_PASSWORD dan SESSION_SECRET -> `npx wrangler secret put ...`
+	"observability": {
+		"enabled": true
+	}
+}

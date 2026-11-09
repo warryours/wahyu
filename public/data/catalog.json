@@ -1,0 +1,236 @@
+{
+    "categories": [
+        {
+            "id": "aneka-daging",
+            "name": "Aneka Daging",
+            "items": [
+                {
+                    "name": "Daging Lada Hitam",
+                    "image": "assets/menu/daging-lada-hitam.jpg"
+                },
+                {
+                    "name": "Daging Topa'Lada",
+                    "image": "assets/menu/daging-topalada.jpeg"
+                },
+                {
+                    "name": "Daging Sambal Goreng",
+                    "image": "assets/menu/daging-sambal-goreng.jpeg"
+                },
+                {
+                    "name": "Daging Rendang",
+                    "image": "assets/menu/daging-rendang.jpeg"
+                },
+                {
+                    "name": "Daging Semur",
+                    "image": "assets/menu/daging-semur.jpeg"
+                },
+                {
+                    "name": "Daging Kari",
+                    "image": "assets/menu/daging-kari.jpeg"
+                }
+            ]
+        },
+        {
+            "id": "aneka-ayam",
+            "name": "Aneka Ayam",
+            "items": [
+                {
+                    "name": "Ayam Kecap",
+                    "image": "assets/menu/ayam-kecap.jpeg"
+                },
+                {
+                    "name": "Ayam Sambal",
+                    "image": "assets/menu/ayam-sambal.jpeg"
+                },
+                {
+                    "name": "Ayam Suwir",
+                    "image": "assets/menu/ayam-suwir.png"
+                },
+                {
+                    "name": "Sate Ayam",
+                    "image": "assets/menu/ayam-sate.png"
+                },
+                {
+                    "name": "Ayam Lada Hitam",
+                    "image": "assets/menu/ayam-lada-hitam.jpeg"
+                },
+                {
+                    "name": "Ayam Goreng Mentega",
+                    "image": "assets/menu/ayam-saus-mentega.png"
+                },
+                {
+                    "name": "Ayam Fillet",
+                    "image": "assets/menu/ayam-fillet.jpeg"
+                },
+                {
+                    "name": "Ayam Rica-Rica",
+                    "image": "assets/menu/ayam-rica-rica.jpeg"
+                },
+                {
+                    "name": "Ayam Opor",
+                    "image": "assets/menu/ayam-opor.jpeg"
+                },
+                {
+                    "name": "Ayam Nasu Kadundung",
+                    "image": "assets/menu/ayam-nasu-kadundung.jpeg"
+                }
+            ]
+        },
+        {
+            "id": "aneka-telur",
+            "name": "Aneka Telur",
+            "items": [
+                {
+                    "name": "Telur Asam Manis",
+                    "image": "assets/menu/telur-asam-manis.jpeg"
+                },
+                {
+                    "name": "Telur Balado",
+                    "image": "assets/menu/telur-balado.jpeg"
+                },
+                {
+                    "name": "Telur Fuyunghai",
+                    "image": "assets/menu/telur-fuyunghai.jpeg"
+                }
+            ]
+        },
+        {
+            "id": "aneka-udang",
+            "name": "Aneka Udang",
+            "items": [
+                {
+                    "name": "Udang Krispy Asam Manis",
+                    "image": "assets/menu/udang-crispy-asam-manis.png"
+                },
+                {
+                    "name": "Udang Kentucky",
+                    "image": "assets/menu/udang-kentucky.jpeg"
+                },
+                {
+                    "name": "Udang Saus Padang",
+                    "image": "assets/menu/udang-saus-padang.jpeg"
+                }
+            ]
+        },
+        {
+            "id": "aneka-ikan",
+            "name": "Aneka Ikan",
+            "items": [
+                {
+                    "name": "Ikan Bakar Dabu-Dabu",
+                    "image": "assets/menu/ikan-bakar-dabu-dabu.png"
+                },
+                {
+                    "name": "Ikan Goreng Rica",
+                    "image": "assets/menu/ikan-goreng-rica.png"
+                }
+            ]
+        },
+        {
+            "id": "aneka-nasi",
+            "name": "Aneka Nasi",
+            "items": [
+                {
+                    "name": "Nasi Putih",
+                    "image": "assets/menu/nasi-putih.jpg"
+                },
+                {
+                    "name": "Nasi Goreng",
+                    "image": "assets/menu/nasi-goreng.jpg"
+                }
+            ]
+        },
+        {
+            "id": "aneka-mie-dan-bihun",
+            "name": "Aneka Mie & Bihun",
+            "items": [
+                {
+                    "name": "Mie Goreng Jawa",
+                    "image": "assets/menu/mie-goreng-jawa.png"
+                },
+                {
+                    "name": "Mie Goreng Kampung",
+                    "image": "assets/menu/mie-goreng-kampung.png"
+                },
+                {
+                    "name": "Bihun Goreng",
+                    "image": "assets/menu/bihun-goreng.jpeg"
+                }
+            ]
+        },
+        {
+            "id": "aneka-sup-dan-sayur",
+            "name": "Aneka Sup & Sayur",
+            "items": [
+                {
+                    "name": "Sup Kimlo Segar",
+                    "image": "assets/menu/sup-kimlo.jpeg"
+                },
+                {
+                    "name": "Sup Ayam Kampung",
+                    "image": "assets/menu/sup-ayam-kampung.png"
+                },
+                {
+                    "name": "Sup Daging Kacang Merah",
+                    "image": "assets/menu/sup-daging-kacang-merah.jpeg"
+                },
+                {
+                    "name": "Capcay Udang",
+                    "image": "assets/menu/capcay.jpeg"
+                },
+                {
+                    "name": "Sayur Gambung Paria",
+                    "image": "assets/menu/gambung-paria.jpeg"
+                }
+            ]
+        },
+        {
+            "id": "aneka-acar-dan-asinan",
+            "name": "Aneka Acar & Asinan",
+            "items": [
+                {
+                    "name": "Acar Bening",
+                    "image": "assets/menu/acar-bening.jpg"
+                },
+                {
+                    "name": "Acar Kampung/Kacang",
+                    "image": "assets/menu/acar-kacang.jpeg"
+                },
+                {
+                    "name": "Acar Nanas",
+                    "image": "assets/menu/acar-nanas.png"
+                },
+                {
+                    "name": "Asinan Buah",
+                    "image": "assets/menu/asinan-buah.jpeg"
+                }
+            ]
+        },
+        {
+            "id": "aneka-es-buah",
+            "name": "Aneka Es Buah",
+            "items": [
+                {
+                    "name": "Es Buah Kampung",
+                    "image": "assets/menu/es-buah-kampung.jpg"
+                },
+                {
+                    "name": "Es Buah DHT",
+                    "image": "assets/menu/es-buah-dht.jpg"
+                },
+                {
+                    "name": "Es Buah Nanas",
+                    "image": "assets/menu/es-buah-nanas.jpg"
+                },
+                {
+                    "name": "Es Buah Leci",
+                    "image": "assets/menu/es-buah-leci.jpg"
+                },
+                {
+                    "name": "Es Buah Melon",
+                    "image": "assets/menu/es-buah-melon.jpg"
+                }
+            ]
+        }
+    ]
+}

@@ -1,0 +1,25 @@
+{
+  "name": "wahyucatering",
+  "version": "3.0.0",
+  "private": true,
+  "description": "Website Wahyu Catering + admin pesanan, berjalan di Cloudflare Workers (D1)",
+  "scripts": {
+    "dev": "wrangler dev",
+    "deploy": "node scripts/preflight.mjs && wrangler deploy",
+    "db:init:local": "wrangler d1 execute wahyucatering-db --local --file=./schema.sql",
+    "db:init": "wrangler d1 execute wahyucatering-db --remote --file=./schema.sql",
+    "build:logo": "node scripts/build-logo.mjs",
+    "set-domain": "node scripts/set-domain.mjs",
+    "check:deploy": "node scripts/preflight.mjs",
+    "test": "node --disable-warning=ExperimentalWarning --test test/*.test.mjs",
+    "test:browser": "node test/browser.cjs",
+    "test:all": "npm test && npm run test:browser",
+    "smoke": "node scripts/smoke-remote.mjs"
+  },
+  "devDependencies": {
+    "wrangler": "^4"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}
