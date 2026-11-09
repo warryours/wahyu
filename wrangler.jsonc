@@ -16,11 +16,6 @@
 	// Database pesanan. Isi database_id dengan hasil `npx wrangler d1 create wahyucatering-db`.
 	"d1_databases": [
 		{
-			"binding": "DB",
-			"database_name": "wahyucatering-db",
-			"database_id": "d2635e84-ca28-46e8-82ed-cb11d9b6303a"
-		},
-		{
 			"binding": "wahyucatering_db",
 			"database_name": "wahyucatering-db",
 			"database_id": "d2635e84-ca28-46e8-82ed-cb11d9b6303a",
