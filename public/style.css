@@ -1499,7 +1499,7 @@ body.modal-open {
   gap: 8px;
   margin-top: 30px;
   overflow-x: auto;
-  padding-bottom: 8px;
+  padding-bottom: 5px;
   scrollbar-width: thin;
   -webkit-overflow-scrolling: touch;
 }
