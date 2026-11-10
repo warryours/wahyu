@@ -181,8 +181,10 @@
       if (!form.checkValidity()) { form.reportValidity(); return }
       var f = form.elements, p = ALL.filter(function (x) { return x.id === f.paket.value })[0];
       var btn = form.querySelector('button[type=submit]'); btn.disabled = true; btn.textContent = 'Menyimpan...';
-      var data = { nama: f.nama.value.trim(), whatsapp: f.whatsapp.value.trim(), alamat: f.alamat.value.trim(), acara: f.acara.value,
-        paket: p.id, jumlah: parseInt(f.jumlah.value, 10), tanggal: f.tanggal.value, catatan: f.catatan.value.trim(), pilihan: pilihanOut(p) };
+      var data = {
+        nama: f.nama.value.trim(), whatsapp: f.whatsapp.value.trim(), alamat: f.alamat.value.trim(), acara: f.acara.value,
+        paket: p.id, jumlah: parseInt(f.jumlah.value, 10), tanggal: f.tanggal.value, catatan: f.catatan.value.trim(), pilihan: pilihanOut(p)
+      };
       fetch('/api/orders', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(data) })
         .then(function (r) { return r.json().then(function (j) { return { ok: r.ok, j: j } }) })
         .then(function (res) {
@@ -191,7 +193,9 @@
         })
         .catch(function () { btn.disabled = false; btn.textContent = 'Kirim Pesanan'; alert('Koneksi bermasalah. Coba lagi sebentar lagi.') });
     });
-    setTimeout(function () { form.elements.nama.focus() }, 50);
+    if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+      setTimeout(function () { form.elements.nama.focus() }, 50);
+    }
   }
 
   document.addEventListener('change', function (e) {
