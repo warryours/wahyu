@@ -1231,7 +1231,7 @@ button.btn {
   max-width: 100%;
   font: inherit;
   font-size: 16px;
-  line-height: 1.3;          /* jangan mewarisi 1.65 dari body */
+  line-height: 1.3; /* jangan mewarisi 1.65 dari body */
   width: 100%;
   min-height: 48px;
   padding: 12px 14px;
@@ -1243,9 +1243,9 @@ button.btn {
   appearance: none;
 }
 .field input:not([type="date"]) {
-  height: auto;
-  padding: 13px 14px;
-  line-height: normal;
+  height: 48px;
+  padding: 0 14px;
+  line-height: 1.3;
 }
 .field textarea {
   min-height: 88px;
@@ -1353,7 +1353,10 @@ body.modal-open {
   background: #fff8ec;
   color: var(--burgundy);
   cursor: pointer;
-  transition: border-color 0.2s, background 0.2s, color 0.2s;
+  transition:
+    border-color 0.2s,
+    background 0.2s,
+    color 0.2s;
 }
 .chip:hover {
   border-color: var(--gold);
@@ -1737,7 +1740,9 @@ body.modal-open {
   height: 8px;
   border-radius: 50%;
   background: var(--rose);
-  transition: background 0.2s, transform 0.2s;
+  transition:
+    background 0.2s,
+    transform 0.2s;
 }
 .rv-dots i.on {
   background: var(--burgundy);
@@ -1789,13 +1794,15 @@ body.modal-open {
   border-radius: 50%;
   display: grid;
   place-items: center;
-  border: 1.5px solid #fff;   /* garis lingkaran jadi putih */
-  color: #fff;                /* ikon jadi putih */
-  transition: background 0.2s, color 0.2s;
+  border: 1.5px solid #fff; /* garis lingkaran jadi putih */
+  color: #fff; /* ikon jadi putih */
+  transition:
+    background 0.2s,
+    color 0.2s;
 }
 .hero-socials a:hover {
-  background: #fff;                  /* saat disentuh, lingkaran terisi putih */
-  color: var(--burgundy-dark);       /* ikon berubah jadi merah marun */
+  background: #fff; /* saat disentuh, lingkaran terisi putih */
+  color: var(--burgundy-dark); /* ikon berubah jadi merah marun */
 }
 .hero-socials svg {
   width: 20px;
