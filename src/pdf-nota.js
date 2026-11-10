@@ -154,7 +154,7 @@ function render(s, H, hasLogo) {
   text(M + 210, ry, s.jumlah + ' porsi', { size: 9, align: 'r' }); text(M + 272, ry, rp(s.harga), { size: 9, align: 'r' }); text(PW - M - 6, ry, rp(total), { f: 'F2', size: 9, align: 'r' });
   if (s.pilihan_menu) wrap(s.pilihan_menu, 'F1', 7.5, 165).forEach((l) => { ry += 10.5; text(M + 6, ry, l, { size: 7.5, color: GRAY }); });
   const isi = isiPaket(s.paket_nama);
-  
+
   if (isi.length) {
     ry += 12; text(M + 6, ry, 'Sudah termasuk:', { f: 'F2', size: 7.5, color: GRAY });
     wrap(isi.join(', '), 'F1', 7.5, 190).forEach((l) => { ry += 10.5; text(M + 6, ry, l, { size: 7.5, color: GRAY }); });
