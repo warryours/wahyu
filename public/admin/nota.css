@@ -31,6 +31,7 @@ body {
   background: var(--burgundy);
   position: sticky;
   top: 0;
+  z-index: 50;               /* baru: di atas hint & nota */
 }
 .bar a {
   color: #f7f1e6;

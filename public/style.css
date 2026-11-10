@@ -1225,6 +1225,7 @@ button.btn {
   font-weight: 700;
   font-size: 0.9rem;
 }
+
 .field input,
 .field textarea,
 .field select {
@@ -1233,6 +1234,7 @@ button.btn {
   max-width: 100%;
   font: inherit;
   font-size: 16px;
+  line-height: 1.3;          /* jangan mewarisi 1.65 dari body */
   width: 100%;
   min-height: 48px;
   padding: 12px 14px;
@@ -1240,11 +1242,19 @@ button.btn {
   border-radius: 12px;
   background: #fffaf0;
   color: var(--espresso);
+  -webkit-appearance: none;
+  appearance: none;
+}
+.field input:not([type="date"]) {
+  height: 48px;              /* tinggi pasti, teks & kursor sejajar */
+  padding-top: 0;
+  padding-bottom: 0;
 }
 .field textarea {
   min-height: 88px;
   resize: vertical;
 }
+
 .field input:focus,
 .field textarea:focus,
 .field select:focus {
