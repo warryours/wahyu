@@ -105,8 +105,8 @@
       '<div class="pay"><h3>Informasi Pembayaran</h3><div><span>Bank</span><b>' + esc(PEMBAYARAN.bank) + '</b></div><div><span>No. Rekening</span><b>' + esc(PEMBAYARAN.rekening) + '</b></div><div><span>Atas Nama</span><b>' + esc(PEMBAYARAN.atasNama) + '</b></div></div>' +
       '<p class="note">' + (isDp ? 'DP untuk menyimpan tanggal acara. Pelunasan dilakukan pada hari H.' : 'Mohon lakukan pelunasan sesuai jumlah tagihan di atas. Terima kasih atas kepercayaan Anda.') + '</p>' +
       '<div class="sign"><div><i></i><span>Pemesan</span></div><div><i></i><span>Wahyu Catering</span></div></div>' +
-      '<p class="bukti">Catatan: Mohon kirim bukti pembayaran melalui WhatsApp ke <b>' + esc(WA_BUKTI) + '</b></p>' +
-      '<p class="thanks">Terima kasih — Cita Rasa Istimewa</p>';
+      '<p class="bukti">Catatan: Mohon kirim bukti pembayaran melalui WhatsApp Wahyu Catering ke <b>' + esc(WA_BUKTI) + '</b></p>' +
+      '<p class="thanks">Terima kasih — Wahyu Catering Melayani Setulus Hati</p>';
     $('msg').hidden = true; $('nota').hidden = false;
   }).catch(function (e) { if (e !== 0) $('msg').textContent = 'Pesanan tidak ditemukan.' });
 })();
