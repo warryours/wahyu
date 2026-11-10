@@ -149,7 +149,7 @@
     if (!ALL.length) { window.open('https://wa.me/' + WA, '_blank', 'noopener'); return }
     function opts(arr) { return arr.map(function (p) { return '<option value="' + esc(p.id) + '">' + esc(p.name) + ' - ' + rp(p.price) + '</option>' }).join('') }
     show('<h2>Form Pemesanan</h2><p class="sub">Isi data berikut, lalu kirim ke WhatsApp kami.</p><form novalidate>' +
-      '<div class="field"><label for="of-nama">Nama</label><input id="of-nama" name="nama" type="text" required></div>' +
+      '<div class="field"><label for="of-nama">Nama</label><input id="of-nama" name="nama" type="text" autocomplete="off" autocapitalize="words" autocorrect="off" spellcheck="false" required></div>' +
       '<div class="field"><label for="of-wa">Nomor WhatsApp</label><input id="of-wa" name="whatsapp" type="tel" inputmode="tel" autocomplete="tel" placeholder="08xxxxxxxxxx" required></div>' +
       '<div class="field"><label for="of-alamat">Alamat</label><textarea id="of-alamat" name="alamat" autocomplete="street-address" required></textarea></div>' +
       '<div class="field"><label for="of-acara">Jenis acara</label><select id="of-acara" name="acara" required><option value="">Pilih acara</option><option>Pengantin</option><option>Aqiqah</option><option>Syukuran</option><option>Arisan</option><option>Ulang Tahun</option><option>Acara Kantor</option><option>Lainnya</option></select></div>' +
@@ -194,12 +194,6 @@
         .catch(function () { btn.disabled = false; btn.textContent = 'Kirim Pesanan'; alert('Koneksi bermasalah. Coba lagi sebentar lagi.') });
     });
     var nama = form.elements.nama;
-
-    // Perbaiki kursor yang bergeser di Safari iPhone
-    nama.addEventListener('focus', function () {
-      nama.style.transform = 'translateZ(0)';
-      requestAnimationFrame(function () { nama.style.transform = ''; });
-    });
 
     // Fokus otomatis hanya di desktop
     if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
