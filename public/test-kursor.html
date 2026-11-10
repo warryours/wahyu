@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Tes kursor</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css?v=7">
+<style>
+body{padding:16px;background:#f7f1e6}
+h1{font-size:1.3rem;margin-bottom:6px}
+.v{margin:0 0 14px}
+.v b{display:block;font-size:.85rem;margin-bottom:4px}
+.v input,.v textarea{width:100%;display:block}
+/* A: CSS situs saat ini = .field input (dari style.css) */
+.B input{height:auto!important;padding:13px 14px!important;line-height:normal!important}
+.C input{height:48px!important;padding:0 14px!important;line-height:48px!important}
+.D input{-webkit-appearance:auto!important;appearance:auto!important;border:1.5px solid #d8b6a6!important;border-radius:12px!important}
+.E input{font-family:-apple-system,system-ui,sans-serif!important}
+.F input{height:auto!important;min-height:0!important;padding:14px!important;line-height:20px!important}
+.G input{height:48px!important;padding:12px 14px!important;line-height:normal!important}
+.H input{-webkit-appearance:none!important;background:transparent!important;border:0!important;outline:0!important;height:100%!important;min-height:0!important;padding:0 14px!important;line-height:normal!important}
+.H .box{border:1.5px solid #d8b6a6;border-radius:12px;background:#fffaf0;height:48px;display:flex;align-items:center}
+.I textarea{min-height:0!important;height:auto!important;resize:none}
+.sheet{position:fixed;inset:0;z-index:50;background:rgba(48,32,28,.8);display:none;align-items:flex-end}
+.sheet.on{display:flex}
+.sheet .in{background:#f7f1e6;border-top:4px solid #c9a45c;border-radius:22px 22px 0 0;width:100%;max-height:92%;overflow-y:auto;padding:24px 20px}
+.btn2{padding:12px 18px;border-radius:12px;border:0;background:#c9a45c;font:inherit;font-weight:700}
+</style>
+</head>
+<body>
+<h1>Tes kursor iPhone</h1>
+<p style="font-size:.9rem;margin-bottom:12px">Ketuk tiap kotak, ketik beberapa huruf, lihat apakah kursor sejajar dengan teks. Lakukan di <b>halaman ini</b> dan di <b>bottom-sheet</b> (tombol di bawah). Catat huruf yang kursornya BENAR.</p>
+<button class="btn2" id="open">Buka bottom-sheet</button>
+<div style="height:14px"></div>
+<div id="list"></div>
+<div class="sheet" id="sheet"><div class="in"><button class="btn2" id="close" style="margin-bottom:12px">Tutup</button><div id="list2"></div></div></div>
+<script>
+var V=[
+['A','Saat ini (style.css apa adanya)','',function(){return '<div class="field"><input type="text" placeholder="ketik..."></div>'}],
+['B','line-height normal, padding 13px (versi awal)','B'],
+['C','height 48 + line-height 48px','C'],
+['D','appearance auto (bawaan iOS)','D'],
+['E','font sistem (bukan DM Sans)','E'],
+['F','line-height 20px, tanpa height tetap','F'],
+['G','height 48 + padding 12 + normal','G'],
+['H','input transparan di dalam kotak flex','H','box'],
+['I','textarea 1 baris (pembanding)','I','ta']
+];
+function build(el,pre){
+  el.innerHTML=V.map(function(v){
+    var cls=v[2]||'', f='<div class="field" style="margin:0"><input type="text" placeholder="ketik..."></div>';
+    if(v[3]==='box') f='<div class="box"><input type="text" placeholder="ketik..."></div>';
+    if(v[3]==='ta') f='<div class="field" style="margin:0"><textarea rows="1" placeholder="ketik..."></textarea></div>';
+    if(v[0]==='A') f='<div class="field" style="margin:0"><input type="text" placeholder="ketik..."></div>';
+    return '<div class="v '+cls+'"><b>'+v[0]+' — '+v[1]+'</b>'+f+'</div>';
+  }).join('');
+}
+build(document.getElementById('list')); build(document.getElementById('list2'));
+document.getElementById('open').onclick=function(){document.getElementById('sheet').classList.add('on')};
+document.getElementById('close').onclick=function(){document.getElementById('sheet').classList.remove('on')};
+</script>
+</body>
+</html>
