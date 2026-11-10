@@ -1183,7 +1183,7 @@ button.btn {
   max-width: 480px;
   max-height: 100%;
   overflow-y: auto;
-  -webkit-overflow-scrolling: touch;
+  overscroll-behavior: contain;
   padding: 30px 26px calc(26px + env(safe-area-inset-bottom, 0px));
 }
 .modal-box h2 {
@@ -1269,6 +1269,10 @@ button.btn {
 }
 body.modal-open {
   overflow: hidden;
+  position: fixed;   /* kunci halaman: iOS tidak menggeser halaman saat keyboard muncul */
+  left: 0;
+  right: 0;
+  width: 100%;
 }
 @media (max-width: 520px) {
   .modal {

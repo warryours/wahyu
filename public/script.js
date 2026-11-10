@@ -85,12 +85,18 @@
   }
   function show(html) {
     ensure(); if (modal.hidden) lastFocus = document.activeElement;
+    if (!document.body.classList.contains('modal-open')) {
+      lockY = window.pageYOffset || 0;
+      document.body.style.top = (-lockY) + 'px';
+    }
     box.innerHTML = html; modal.hidden = false; document.body.classList.add('modal-open');
     modal.querySelector('.modal-box').scrollTop = 0;
   }
+  var lockY = 0;
   function closeModal() {
     modal.hidden = true; document.body.classList.remove('modal-open');
-    if (lastFocus && lastFocus.focus) lastFocus.focus();
+    document.body.style.top = ''; window.scrollTo(0, lockY);
+    if (lastFocus && lastFocus.focus) lastFocus.focus({ preventScroll: true });
   }
 
   /* ===== Pilihan menu di dalam paket ===== */
@@ -194,6 +200,19 @@
         .catch(function () { btn.disabled = false; btn.textContent = 'Kirim Pesanan'; alert('Koneksi bermasalah. Coba lagi sebentar lagi.') });
     });
     var nama = form.elements.nama;
+
+    // Safari iPhone: kursor tergambar sebelum keyboard selesai naik -> gambar ulang setelahnya
+    form.addEventListener('focusin', function (e) {
+      var el = e.target; if (!el || !el.style || el.tagName !== 'INPUT') return;
+      setTimeout(function () {
+        if (document.activeElement !== el) return;
+        el.style.caretColor = 'transparent';
+        requestAnimationFrame(function () {
+          el.style.caretColor = '';
+          try { var n = el.value.length; el.setSelectionRange(n, n) } catch (x) {}
+        });
+      }, 400);
+    });
 
     // Fokus otomatis hanya di desktop
     if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
