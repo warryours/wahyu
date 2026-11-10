@@ -52,6 +52,12 @@
   function day(d) { return new Date(d + 'T00:00:00').toLocaleDateString('id-ID', { day: 'numeric', month: 'long', year: 'numeric' }) }
   function phone(w) { return w.indexOf('62') === 0 ? '0' + w.slice(2) : w }
   var order = null;
+  function nominal() {
+    var total = order.harga * order.jumlah,
+      dp = Math.min(order.dp, total),
+      sisa = total - dp;
+    return type === 'dp' ? dp : sisa;
+  }
   function issue() {
     return fetch('/api/admin/orders/' + id + '/nota', { method: 'POST', credentials: 'same-origin', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ type: type }) })
       .then(function (r) { return r.json().then(function (j) { if (!r.ok) throw new Error(j.error || 'Gagal membuat nota'); return j }) });
@@ -67,7 +73,7 @@
     if (!order) return; var w = window.open('', '_blank'); busy(true);
     issue().then(function (n) {
       if (isLocal(n.url) && !confirm('Link PDF memakai alamat lokal (' + n.url.split('/n/')[0] + ') sehingga TIDAK bisa dibuka pelanggan.\n\nSetelah website di-deploy (atau PUBLIC_URL diisi), link akan bisa dibuka. Tetap lanjut?')) { if (w) w.close(); return }
-      var msg = 'Halo ' + order.nama + ', terima kasih telah memesan di Wahyu Catering.\nBerikut ' + (type === 'dp' ? 'invoice pembayaran DP' : 'invoice pelunasan') + ' untuk pesanan ' + order.code + ':\n' + n.url + '\n\nSegera melakukan pembayaran ke ' + PEMBAYARAN.bank + ', No. Rekening ' + PEMBAYARAN.rekening + ' Atas Nama ' + PEMBAYARAN.atasNama + '. Terima kasih.';
+      var msg = 'Halo Kak ' + order.nama + ', terima kasih telah memesan di Wahyu Catering.\nBerikut ' + (type === 'dp' ? 'invoice pembayaran DP' : 'invoice pelunasan') + ' untuk pesanan ' + order.code + ':\n' + n.url + '\n\nSegera melakukan pembayaran ke ' + PEMBAYARAN.bank + ', No. Rekening ' + PEMBAYARAN.rekening + ' Atas Nama ' + PEMBAYARAN.atasNama + '. Sejumlah ' + rp(nominal()) + '. Terima kasih.';
       var url = 'https://wa.me/' + order.whatsapp + '?text=' + encodeURIComponent(msg);
       if (w) w.location = url; else location.href = url;
     }).catch(function (e) { if (w) w.close(); alert(e.message) }).then(function () { busy(false) });
