@@ -202,7 +202,6 @@ function render(s, H, hasLogo) {
   text(c1, ly + 11, 'Pemesan', { size: 8.5, align: 'c' }); text(c2, ly + 11, 'Wahyu Catering', { size: 8.5, align: 'c' });
   const by = ly + 26, bt = 'Catatan: Mohon kirim bukti pembayaran melalui WhatsApp Wahyu Catering.';
   rect(M, by, CW, 22, CREAM); rect(M, by, 3, 22, BURG);
-  text(M + 12, by + 14, bt, { size: 8 }); text(M + 12 + width(bt, 'F1', 8), by + 14, WA_BUKTI, { f: 'F2', size: 8 });
   y = by + 22 + 16;
   text(PW / 2, y, 'Terima kasih \u00b7 Wahyu Catering Melayani Setulus Hati', { f: 'F2', size: 8.5, color: BURG, align: 'c' });
   return { stream: ops.join('\n'), endY: y };
