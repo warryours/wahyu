@@ -1677,11 +1677,13 @@ body.modal-open {
   color: #3c4043;
   display: -webkit-box;
   -webkit-line-clamp: 5;
+  line-clamp: 5;
   -webkit-box-orient: vertical;
   overflow: hidden;
 }
 .rv-text.open {
   -webkit-line-clamp: unset;
+  line-clamp: unset;
   display: block;
 }
 .rv-expand {
