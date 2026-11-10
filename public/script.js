@@ -193,8 +193,17 @@
         })
         .catch(function () { btn.disabled = false; btn.textContent = 'Kirim Pesanan'; alert('Koneksi bermasalah. Coba lagi sebentar lagi.') });
     });
+    var nama = form.elements.nama;
+
+    // Perbaiki kursor yang bergeser di Safari iPhone
+    nama.addEventListener('focus', function () {
+      nama.style.transform = 'translateZ(0)';
+      requestAnimationFrame(function () { nama.style.transform = ''; });
+    });
+
+    // Fokus otomatis hanya di desktop
     if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
-      setTimeout(function () { form.elements.nama.focus() }, 50);
+      setTimeout(function () { nama.focus() }, 50);
     }
   }
 
