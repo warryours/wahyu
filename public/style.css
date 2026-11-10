@@ -1159,17 +1159,14 @@ button.btn {
   font-size: 1.05rem;
 }
 .modal {
-  overflow: hidden;
   position: fixed;
   inset: 0;
   z-index: 100;
-  background: rgba(48, 32, 28, 0.72);
+  background: rgba(48, 32, 28, 0.82);
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 20px;
-  -webkit-backdrop-filter: blur(4px);
-  backdrop-filter: blur(4px);
 }
 .modal[hidden] {
   display: none;
@@ -1177,7 +1174,6 @@ button.btn {
 .modal-box {
   box-sizing: border-box;
   min-width: 0;
-  overflow-x: hidden;
   position: relative;
   background: var(--ivory);
   color: var(--espresso);
@@ -1186,7 +1182,8 @@ button.btn {
   width: 100%;
   max-width: 480px;
   max-height: 100%;
-  overflow: auto;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
   padding: 30px 26px calc(26px + env(safe-area-inset-bottom, 0px));
 }
 .modal-box h2 {
@@ -1246,9 +1243,9 @@ button.btn {
   appearance: none;
 }
 .field input:not([type="date"]) {
-  height: 48px;              /* tinggi pasti, teks & kursor sejajar */
-  padding-top: 0;
-  padding-bottom: 0;
+  height: auto;
+  padding: 13px 14px;
+  line-height: normal;
 }
 .field textarea {
   min-height: 88px;
