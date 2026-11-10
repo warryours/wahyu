@@ -204,7 +204,7 @@ function render(s, H, hasLogo) {
   rect(M, by, CW, 22, CREAM); rect(M, by, 3, 22, BURG);
   text(M + 12, by + 14, bt, { size: 8 }); text(M + 12 + width(bt, 'F1', 8), by + 14, WA_BUKTI, { f: 'F2', size: 8 });
   y = by + 22 + 16;
-  text(PW / 2, y, 'Terima kasih \u00b7 Cita Rasa Istimewa', { f: 'F2', size: 8.5, color: BURG, align: 'c' });
+  text(PW / 2, y, 'Terima kasih \u00b7 Wahyu Catering Melayani Setulus Hati', { f: 'F2', size: 8.5, color: BURG, align: 'c' });
   return { stream: ops.join('\n'), endY: y };
 }
 
