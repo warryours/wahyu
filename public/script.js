@@ -26,8 +26,9 @@
   function menuOf(it) { return it.menu ? (MENU.filter(function (x) { return x.key === it.menu })[0] || null) : null }
   function groupsOf(it) { var m = menuOf(it); return m && m.groups ? m.groups : null }
   function optsOf(it) {
-    if (it.options) return it.options;
-    var m = menuOf(it); return m ? m.options : null;
+    var o = it.options || (menuOf(it) || {}).options || null;
+    if (o && it.exclude) o = o.filter(function (x) { return it.exclude.indexOf(x) === -1 });
+    return o;
   }
   function itemDesc(it) {
     if (it.note) return it.note;
