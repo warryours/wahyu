@@ -101,7 +101,7 @@
         'Segera melakukan pembayaran ke:\n' +
         '• ' + PEMBAYARAN.bank + '\n' +
         '• No. Rekening: ' + PEMBAYARAN.rekening + '\n' +
-        '• Sejumlah Rp: ' + nominalPolos + + ' (' + terbilang(nominalPolos) + ')\n' +
+        '• Sejumlah Rp: ' + nominalPolos + ' (' + terbilang(nominalPolos) + ')\n' +
         '• a.n : ' + PEMBAYARAN.atasNama + '\n\n' +
         'Klik untuk menyalin nomor rekening dan nominal. Pastikan tanpa spasi agar tidak salah transfer, ya kak!\n\n' +
         'Setelah melakukan pembayaran, mohon kirim bukti pembayaran ya kak!\n' +
