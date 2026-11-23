@@ -146,7 +146,7 @@
         return '<li><label><input type="checkbox" checked disabled> <span>' + esc(i.name) + (d ? ' <small>(' + esc(d) + ')</small>' : '') + '</span></label></li>';
       }).join('') + '</ul></div>' : '';
     if (!hasChoices(p)) return fixedHtml;
-    return '<p class="sub">*Pilih satu menu per item (boleh dikosongkan dan dibahas lewat WhatsApp). Untuk item Telur / Udang atau Daging, pilih jenisnya dulu.</p>' +
+    return '<p class="sub">*Pilih jenis dan nama masakan</p>' +
       p.items.filter(function (i) { return optsOf(i) }).map(function (i) { return '<div class="mgroup"><h3>' + esc(i.name) + '</h3>' + chipsHtml(i) + '</div>' }).join('') + fixedHtml;
   }
   function pilihanOut(p) {
