@@ -8,8 +8,15 @@ import CATALOG from '../public/data/packages.json';
 /* ---------- Katalog (sumber harga: server, bukan browser) ---------- */
 const PACKAGES = {};
 CATALOG.prasmanan.concat(CATALOG.nasikotak).forEach((p) => { PACKAGES[p.id] = p; });
-const MENU = {}; CATALOG.menu.forEach((m) => { MENU[m.key] = m.options; });
-function itemOptions(it) { return it.options || (it.menu && MENU[it.menu]) || null; }
+const MENU = {}; CATALOG.menu.forEach((m) => { MENU[m.key] = m; });
+/* Sama dengan optsOf() di script.js: hormati excludeGroups & exclude supaya pilihan yang disembunyikan di form juga ditolak server */
+function itemOptions(it) {
+  const m = it.menu ? MENU[it.menu] : null;
+  let o = it.options || (m && m.options) || null;
+  if (o && m && m.groups && it.excludeGroups) o = [].concat(...m.groups.filter((g) => !it.excludeGroups.includes(g.label)).map((g) => g.options));
+  if (o && it.exclude) o = o.filter((x) => !it.exclude.includes(x));
+  return o;
+}
 /* Validasi pilihan menu dari pelanggan terhadap katalog; hasil berupa teks "Ayam: Opor, Rica-Rica" per baris */
 function buildPilihan(pkg, input) {
   if (input == null || input === '') return '';
@@ -159,7 +166,7 @@ async function servePdf(env, token) {
 async function listOrders(env, url) {
   const status = url.searchParams.get('status'), term = (url.searchParams.get('q') || '').trim().toLowerCase();
   const where = [], args = [];
-  if (STATUSES.includes(status)) { where.push('status=?'); args.push(status); }
+  if (STATUSES.includes(status)) { if (status === 'baru') where.push("status IN ('baru','dikonfirmasi')"); else { where.push('status=?'); args.push(status); } }
   if (term) { where.push('(lower(nama) LIKE ? OR lower(code) LIKE ? OR whatsapp LIKE ? OR lower(acara) LIKE ?)'); const l = '%' + term.replace(/[%_]/g, '') + '%'; args.push(l, l, l, l); }
   const sql = 'SELECT * FROM orders' + (where.length ? ' WHERE ' + where.join(' AND ') : '') + ' ORDER BY id DESC LIMIT 500';
   return (await env.DB.prepare(sql).bind(...args).all()).results;
@@ -184,7 +191,7 @@ async function adminApi(request, env, url) {
 
   if (p === '/api/admin/orders' && m === 'GET') {
     const counts = {}; STATUSES.forEach((s) => { counts[s] = 0; });
-    (await env.DB.prepare('SELECT status, COUNT(*) AS n FROM orders GROUP BY status').all()).results.forEach((r) => { counts[r.status] = r.n; });
+    (await env.DB.prepare('SELECT status, COUNT(*) AS n FROM orders GROUP BY status').all()).results.forEach((r) => { const k = r.status === 'dikonfirmasi' ? 'baru' : r.status; counts[k] = (counts[k] || 0) + r.n; });
     return json({ orders: await listOrders(env, url), counts });
   }
   if (p === '/api/admin/export.csv' && m === 'GET') {

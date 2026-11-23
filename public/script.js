@@ -159,7 +159,7 @@
 
   function showBonus() {
     show('<h2>Bonus &amp; Ketentuan</h2><p class="sub">Berlaku untuk pemesanan di Luwu Raya dan Tanah Toraja.</p>' +
-      '<div class="kv"><div><small>Minimal order</small><b>100 porsi</b></div><div><small>DP simpan tanggal</small><b>Rp1.000.000</b></div></div>' +
+      '<div class="kv"><div><small>Minimal order prasmanan</small><b>100 porsi</b></div><div><small>DP simpan tanggal</small><b>Rp1.000.000</b></div></div>' +
       '<p class="sub">DP untuk simpan tanggal; pelunasan di hari H.</p><ul class="bonus-list">' +
       BONUS.map(function (b) { return '<li>' + esc(b) + '</li>' }).join('') + '</ul>' +
       '<button type="button" class="btn btn-gold" data-order>Pesan Sekarang</button>');

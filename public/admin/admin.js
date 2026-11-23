@@ -30,7 +30,7 @@
 
   function qs() { var p = []; if (filter) p.push('status=' + encodeURIComponent(filter)); if (term) p.push('q=' + encodeURIComponent(term)); return p.length ? '?' + p.join('&') : '' }
   function load() {
-    api('/api/admin/orders' + qs()).then(function (d) { orders = d.orders.map(function (o) { if (!STATUS[o.status]) o.status = 'baru'; return o }); if (d.counts.dikonfirmasi) { d.counts.baru = (d.counts.baru || 0) + d.counts.dikonfirmasi; delete d.counts.dikonfirmasi } renderStats(d.counts); renderOrders() }).catch(function () { });
+    api('/api/admin/orders' + qs()).then(function (d) { orders = d.orders.map(function (o) { if (!STATUS[o.status]) o.status = 'baru'; return o }); renderStats(d.counts); renderOrders() }).catch(function () { });
     $('csv').href = '/api/admin/export.csv' + qs();
   }
   function renderStats(c) {
