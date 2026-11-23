@@ -119,7 +119,14 @@
                 },
                 {
                     "name": "Daging",
-                    "note": "Sambal Goreng"
+                    "menu": "A",
+                    "exclude": [
+                        "Daging Kari",
+                        "Daging Lada Hitam",
+                        "Daging Rendang",
+                        "Daging Semur",
+                        "Daging Topa'Lada"
+                    ]
                 },
                 {
                     "name": "Mie / Bihun",
