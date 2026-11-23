@@ -75,15 +75,13 @@
     });
   }
   function renderNasiKotak() {
-    var g = document.getElementById('nk-grid'); if (!g) return;
-    g.innerHTML = NASIKOTAK.map(function (p) {
-      var img = p.image || 'assets/nasibox.jpg';
-      return '<article class="cat-card nk-card"><div class="cat-img">' + (p.badge ? '<span class="nk-badge">' + esc(p.badge) + '</span>' : '') +
-        '<img src="' + esc(ROOT + img) + '" alt="' + esc(p.name) + '" loading="lazy" onerror="this.remove()"></div>' +
-        '<div class="nk-body"><h3>' + esc(p.name) + '</h3>' + (p.tag ? '<span class="nk-tag">' + esc(p.tag) + '</span>' : '') +
-        '<div class="nk-price">' + rp(p.price) + ' <small>per porsi</small></div>' +
-        '<button type="button" class="btn btn-out" data-order data-package="' + esc(p.id) + '">Pesan</button></div></article>';
-    }).join('');
+  var g = document.getElementById('nk-grid'); if (!g) return;
+  g.innerHTML = NASIKOTAK.map(function (p) {
+    var img = p.image || 'assets/nasibox.jpg';
+    return '<article class="cat-card nk-card"><div class="cat-img">' + (p.badge ? '<span class="nk-badge">' + esc(p.badge) + '</span>' : '') +
+      '<img src="' + esc(ROOT + img) + '" alt="' + esc(p.name) + '" loading="lazy" onerror="this.remove()"></div>' +
+      '<div class="nk-body"><h3>' + esc(p.name) + '</h3>' + (p.tag ? '<span class="nk-tag">' + esc(p.tag) + '</span>' : '') + '</div></article>';
+  }).join('');
   }
   document.querySelectorAll('.chips .chip').forEach(function (c) {
     c.addEventListener('click', function () { curCat = c.getAttribute('data-cat'); renderPackages() });
