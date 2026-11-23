@@ -354,6 +354,7 @@
         {
             "id": "k18",
             "name": "Paket Hemat",
+            "image": "assets/paketHemat.jpeg",
             "tag": "Kemasan Steroform",
             "price": 18000,
             "items": [
@@ -387,6 +388,7 @@
         {
             "id": "k20",
             "name": "Paket Hemat Plus",
+            "image": "assets/paketHematPlus.jpeg",
             "tag": "Kemasan Steroform",
             "price": 20000,
             "items": [
@@ -424,6 +426,7 @@
         {
             "id": "k25",
             "name": "Paket Premium 25",
+            "image": "assets/paketPremium25.jpeg",
             "tag": "Kotak Eksklusif",
             "price": 25000,
             "items": [
@@ -460,6 +463,7 @@
         {
             "id": "k28",
             "name": "Paket Premium 28",
+            "image": "assets/paketPremium28.jpeg",
             "tag": "Kotak Eksklusif",
             "price": 28000,
             "items": [
@@ -495,6 +499,7 @@
         {
             "id": "k30",
             "name": "Paket Spesial",
+            "image": "assets/paketSpecial.jpeg",
             "tag": "Kotak Eksklusif",
             "price": 30000,
             "badge": "Dengan Isian kue",
