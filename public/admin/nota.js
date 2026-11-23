@@ -33,6 +33,26 @@
     return [];
   }
 
+  function terbilang(angka) {
+    angka = Math.floor(Math.abs(Number(angka) || 0));
+    var satuan = ['', 'satu', 'dua', 'tiga', 'empat', 'lima', 'enam', 'tujuh', 'delapan', 'sembilan', 'sepuluh', 'sebelas'];
+
+  function konversi(n) {
+      if (n < 12) return satuan[n];
+      if (n < 20) return konversi(n - 10) + ' belas';
+      if (n < 100) return konversi(Math.floor(n / 10)) + ' puluh' + (n % 10 ? ' ' + konversi(n % 10) : '');
+      if (n < 200) return 'seratus' + (n % 100 ? ' ' + konversi(n % 100) : '');
+      if (n < 1000) return konversi(Math.floor(n / 100)) + ' ratus' + (n % 100 ? ' ' + konversi(n % 100) : '');
+      if (n < 2000) return 'seribu' + (n % 1000 ? ' ' + konversi(n % 1000) : '');
+      if (n < 1000000) return konversi(Math.floor(n / 1000)) + ' ribu' + (n % 1000 ? ' ' + konversi(n % 1000) : '');
+      if (n < 1000000000) return konversi(Math.floor(n / 1000000)) + ' juta' + (n % 1000000 ? ' ' + konversi(n % 1000000) : '');
+      if (n < 1000000000000) return konversi(Math.floor(n / 1000000000)) + ' miliar' + (n % 1000000000 ? ' ' + konversi(n % 1000000000) : '');
+      return konversi(Math.floor(n / 1000000000000)) + ' triliun' + (n % 1000000000000 ? ' ' + konversi(n % 1000000000000) : '');
+  }
+
+  return angka === 0 ? 'nol rupiah' : konversi(angka) + ' rupiah';
+  }
+
   var params = new URLSearchParams(location.search), id = parseInt(params.get('id'), 10), type = params.get('type') === 'lunas' ? 'lunas' : 'dp';
   var $ = function (i) { return document.getElementById(i) };
   function esc(s) { return String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;') }
@@ -81,7 +101,7 @@
         'Segera melakukan pembayaran ke:\n' +
         '• ' + PEMBAYARAN.bank + '\n' +
         '• No. Rekening: ' + PEMBAYARAN.rekening + '\n' +
-        '• Sejumlah Rp: ' + nominalPolos + '\n' +
+        '• Sejumlah Rp: ' + nominalPolos + + ' (' + terbilang(nominalPolos) + ')\n' +
         '• a.n : ' + PEMBAYARAN.atasNama + '\n\n' +
         'Klik untuk menyalin nomor rekening dan nominal. Pastikan tanpa spasi agar tidak salah transfer, ya kak!\n\n' +
         'Setelah melakukan pembayaran, mohon kirim bukti pembayaran ya kak!\n' +
