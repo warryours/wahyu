@@ -117,7 +117,8 @@ async function createOrder(request, env) {
   if (!alamat) return err('Alamat wajib diisi.');
   if (!EVENTS.includes(b.acara)) return err('Jenis acara tidak valid.');
   if (!pkg) return err('Paket tidak valid.');
-  if (!Number.isInteger(jumlah) || jumlah < MIN_PORSI || jumlah > 100000) return err('Jumlah pesanan minimal ' + MIN_PORSI + ' porsi.');
+  const minPorsi = CATALOG.nasikotak.some((x) => x.id === pkg.id) ? 1 : MIN_PORSI;
+  if (!Number.isInteger(jumlah) || jumlah < minPorsi || jumlah > 100000) return err(minPorsi === 1 ? 'Jumlah pesanan tidak valid.' : 'Jumlah pesanan minimal ' + MIN_PORSI + ' porsi.');
   if (!validDate(tanggal) || tanggal < todayLocal()) return err('Tanggal acara tidak valid.');
   const pilihan = buildPilihan(pkg, b.pilihan);
   if (pilihan === null) return err('Pilihan menu tidak valid.');

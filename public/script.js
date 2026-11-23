@@ -195,7 +195,7 @@
       '<div class="field"><label for="of-acara">Jenis acara</label><select id="of-acara" name="acara" required><option value="">Pilih acara</option><option>Pengantin</option><option>Aqiqah</option><option>Syukuran</option><option>Arisan</option><option>Ulang Tahun</option><option>Acara Kantor</option><option>Lainnya</option></select></div>' +
       '<div class="field"><label for="of-paket">Paket yang dipilih</label><select id="of-paket" name="paket" required><option value="">Pilih paket</option><optgroup label="Prasmanan">' + opts(PRASMANAN) + '</optgroup><optgroup label="Nasi Kotak">' + opts(NASIKOTAK) + '</optgroup></select></div>' +
       '<div id="of-pick"></div>' +
-      '<div class="field"><label for="of-jumlah">Jumlah pesanan (porsi, min. 100)</label><input id="of-jumlah" name="jumlah" type="number" inputmode="numeric" min="100" step="1" placeholder="Contoh: 100" required></div>' +
+      '<div class="field"><label for="of-jumlah" id="of-jumlah-label">Jumlah pesanan (porsi, min. 100)</label><input id="of-jumlah" name="jumlah" type="number" inputmode="numeric" min="100" step="1" placeholder="Contoh: 100" required><small id="of-jumlah-note" class="sub"></small></div>' + +
       '<div class="field"><label for="of-tanggal">Tanggal acara</label><div class="date-wrap"><input id="of-tanggal" name="tanggal" type="date" required><span class="ph">Pilih tanggal</span><svg class="cal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M3 10h18M8 3v4M16 3v4"/></svg></div></div>' +
       '<div class="field"><label for="of-catatan">Catatan (opsional)</label><textarea id="of-catatan" name="catatan" maxlength="300" placeholder="Contoh: menu pilihan, jam antar"></textarea></div>' +
       '<button type="submit" class="btn btn-gold">Kirim Pesanan</button>' +
@@ -207,10 +207,17 @@
     var ev = document.body.getAttribute('data-event');
     if (ev) form.elements.acara.value = EVENT_MAP[ev] || ev;
     var pick = box.querySelector('#of-pick');
+    function syncJumlah(p) {
+      var nk = !!p && NASIKOTAK.some(function (x) { return x.id === p.id }), inp = form.elements.jumlah;
+      box.querySelector('#of-jumlah-label').textContent = nk ? 'Jumlah pesanan' : 'Jumlah pesanan (porsi, min. 100)';
+      inp.min = nk ? '1' : '100';
+      inp.placeholder = nk ? 'Contoh: 50' : 'Contoh: 100';
+      box.querySelector('#of-jumlah-note').textContent = nk ? 'Tanpa minimum order. Gratis pengantaran area Luwu dan Palopo untuk pesanan di atas 50 porsi.' : '';
+    }
     function drawPick() {
       var id = form.elements.paket.value, p = ALL.filter(function (x) { return x.id === id })[0];
-      if (!p) { pick.innerHTML = ''; return }
-      resetSel(id); pick.innerHTML = pickerHtml(p);
+      if (!p) { pick.innerHTML = ''; syncJumlah(null); return }
+      resetSel(id); pick.innerHTML = pickerHtml(p); syncJumlah(p);
     }
     form.elements.paket.addEventListener('change', drawPick); drawPick();
     function sync() { dw.classList.toggle('has-value', !!di.value) }
