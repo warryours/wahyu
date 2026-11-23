@@ -59,12 +59,19 @@
     });
   }
   function renderTerms() {
-    document.querySelectorAll('[data-terms]').forEach(function (el) {
-      el.innerHTML = '<div class="terms"><h3>Ketentuan Pemesanan</h3><div class="terms-grid">' +
-        '<div><small>Minimal order</small><b>100 porsi</b></div>' +
-        '<div><small>DP simpan tanggal</small><b>Rp1.000.000</b></div>' +
-        '<div><small>Pelunasan</small><b>Di hari H</b></div></div>' +
-        '<button type="button" class="link-btn" data-bonus>Lihat bonus pemesanan</button></div>';
+  document.querySelectorAll('[data-terms]').forEach(function (el) {
+    el.innerHTML =
+      '<div class="terms">' +
+        '<h3>Ketentuan Pemesanan</h3>' +
+        '<div class="terms-grid">' +
+          '<div><small>Paket Prasmanan</small><b>Min. order 100 porsi</b></div>' +
+          '<div><small>Paket Nasi Kotak</small><b>Tanpa minimal order</b></div>' +
+          '<div><small>Pengantaran Nasi Kotak</small><b>Gratis antar &gt; 50 paket (Kab. Luwu &amp; Kota Palopo)</b></div>' +
+          '<div><small>DP simpan tanggal</small><b>Rp1.000.000</b></div>' +
+          '<div><small>Pelunasan</small><b>Di hari H</b></div>' +
+        '</div>' +
+        '<button type="button" class="link-btn" data-bonus>Lihat bonus pemesanan</button>' +
+      '</div>';
     });
   }
   document.querySelectorAll('.chips .chip').forEach(function (c) {
