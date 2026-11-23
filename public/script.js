@@ -139,9 +139,15 @@
   }
   function hasChoices(p) { return p.items.some(function (i) { return !!optsOf(i) }) }
   function pickerHtml(p) {
-    if (!hasChoices(p)) return '';
+    var fixed = p.items.filter(function (i) { return !optsOf(i) });
+    var fixedHtml = fixed.length ? '<div class="mgroup fixed-group"><h3>Sudah termasuk di paket</h3><ul class="fixed-list">' +
+      fixed.map(function (i) {
+        var d = itemDesc(i);
+        return '<li><label><input type="checkbox" checked disabled> <span>' + esc(i.name) + (d ? ' <small>(' + esc(d) + ')</small>' : '') + '</span></label></li>';
+      }).join('') + '</ul></div>' : '';
+    if (!hasChoices(p)) return fixedHtml;
     return '<p class="sub">*Pilih satu menu per item (boleh dikosongkan dan dibahas lewat WhatsApp). Untuk item Telur / Udang atau Daging, pilih jenisnya dulu.</p>' +
-      p.items.filter(function (i) { return optsOf(i) }).map(function (i) { return '<div class="mgroup"><h3>' + esc(i.name) + '</h3>' + chipsHtml(i) + '</div>' }).join('');
+      p.items.filter(function (i) { return optsOf(i) }).map(function (i) { return '<div class="mgroup"><h3>' + esc(i.name) + '</h3>' + chipsHtml(i) + '</div>' }).join('') + fixedHtml;
   }
   function pilihanOut(p) {
     var out = {}; p.items.forEach(function (i) { if (sel[i.name] && sel[i.name].length && optsOf(i)) out[i.name] = sel[i.name] }); return out;
