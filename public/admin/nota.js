@@ -2,7 +2,7 @@
   /* ===== ISI DATA PEMBAYARAN DI SINI ===== */
   var PEMBAYARAN = {
     bank: 'Bank Rakyat Indonesia (BRI)',
-    rekening: '499801073287539',
+    rekening: '499 8010 7328 7539',
     atasNama: 'Muhammad Wahyu Kusairi'
   };
   var WA_BUKTI = '0895325916029'; /* nomor WhatsApp untuk kirim bukti bayar */
@@ -83,6 +83,8 @@
         '• No. Rekening: ' + PEMBAYARAN.rekening + '\n' +
         '• Sejumlah Rp: ' + nominalPolos + '\n' +
         '• a.n : ' + PEMBAYARAN.atasNama + '\n\n' +
+        'Klik untuk menyalin nomor rekening dan nominal. Pastikan tanpa spasi agar tidak salah transfer, ya kak!\n\n' +
+        'Setelah melakukan pembayaran, mohon kirim bukti pembayaran ya kak!\n' +
         'Terima kasih.';
       var url = 'https://wa.me/' + order.whatsapp + '?text=' + encodeURIComponent(msg);
       if (w) w.location = url; else location.href = url;

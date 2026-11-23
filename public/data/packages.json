@@ -353,7 +353,7 @@
     "nasikotak": [
         {
             "id": "k18",
-            "name": "Paket Hemat",
+            "name": "Paket Hemat 18K",
             "image": "assets/paketHemat.jpeg",
             "tag": "Kemasan Steroform",
             "price": 18000,
@@ -387,7 +387,7 @@
         },
         {
             "id": "k20",
-            "name": "Paket Hemat Plus",
+            "name": "Paket Hemat Plus 20K",
             "image": "assets/paketHematPlus.jpeg",
             "tag": "Kemasan Steroform",
             "price": 20000,
@@ -425,7 +425,7 @@
         },
         {
             "id": "k25",
-            "name": "Paket Premium 25",
+            "name": "Paket Premium 25K",
             "image": "assets/paketPremium25.jpeg",
             "tag": "Kotak Eksklusif",
             "price": 25000,
@@ -462,7 +462,7 @@
         },
         {
             "id": "k28",
-            "name": "Paket Premium 28",
+            "name": "Paket Premium 28K",
             "image": "assets/paketPremium28.jpeg",
             "tag": "Kotak Eksklusif",
             "price": 28000,
@@ -498,7 +498,7 @@
         },
         {
             "id": "k30",
-            "name": "Paket Spesial",
+            "name": "Paket Spesial 30K",
             "image": "assets/paketSpecial.jpeg",
             "tag": "Kotak Eksklusif",
             "price": 30000,
