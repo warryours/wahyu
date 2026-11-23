@@ -73,7 +73,17 @@
     if (!order) return; var w = window.open('', '_blank'); busy(true);
     issue().then(function (n) {
       if (isLocal(n.url) && !confirm('Link PDF memakai alamat lokal (' + n.url.split('/n/')[0] + ') sehingga TIDAK bisa dibuka pelanggan.\n\nSetelah website di-deploy (atau PUBLIC_URL diisi), link akan bisa dibuka. Tetap lanjut?')) { if (w) w.close(); return }
-      var msg = 'Halo Kak ' + order.nama + ', terima kasih telah memesan di Wahyu Catering.\nBerikut ' + (type === 'dp' ? 'invoice pembayaran DP' : 'invoice pelunasan') + ' untuk pesanan ' + order.code + ':\n' + n.url + '\n\nSegera melakukan pembayaran ke ' + PEMBAYARAN.bank + ', No. Rekening ' + PEMBAYARAN.rekening + ' Atas Nama ' + PEMBAYARAN.atasNama + '. Sejumlah ' + rp(nominal()) + '. Terima kasih.';
+      var nominalPolos = String(nominal()).replace(/[^\d]/g, '');
+      var msg =
+        'Halo Kak ' + order.nama + ', terima kasih telah memesan di Wahyu Catering.\n' +
+        'Berikut ' + (type === 'dp' ? 'invoice pembayaran DP' : 'invoice pelunasan') + ' untuk pesanan ' + order.code + ':\n' +
+        n.url + '\n\n' +
+        'Segera melakukan pembayaran ke:\n' +
+        '• ' + PEMBAYARAN.bank + '\n' +
+        '• No. Rekening: ' + PEMBAYARAN.rekening + '\n' +
+        '• Sejumlah Rp: ' + nominalPolos + '\n' +
+        '• a.n : ' + PEMBAYARAN.atasNama + '\n\n' +
+        'Terima kasih.';
       var url = 'https://wa.me/' + order.whatsapp + '?text=' + encodeURIComponent(msg);
       if (w) w.location = url; else location.href = url;
     }).catch(function (e) { if (w) w.close(); alert(e.message) }).then(function () { busy(false) });

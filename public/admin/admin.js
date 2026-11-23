@@ -1,6 +1,6 @@
 (function () {
   var $ = function (id) { return document.getElementById(id) };
-  var STATUS = { baru: 'Baru', dikonfirmasi: 'Dikonfirmasi', dp_dibayar: 'DP dibayar', selesai: 'Selesai', batal: 'Batal' };
+  var STATUS = { baru: 'Baru', dp_dibayar: 'DP dibayar', selesai: 'Selesai', batal: 'Batal' };
   var filter = '', term = '', timer, orders = [];
 
   function esc(s) { return String(s == null ? '' : s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;') }
@@ -30,7 +30,7 @@
 
   function qs() { var p = []; if (filter) p.push('status=' + encodeURIComponent(filter)); if (term) p.push('q=' + encodeURIComponent(term)); return p.length ? '?' + p.join('&') : '' }
   function load() {
-    api('/api/admin/orders' + qs()).then(function (d) { orders = d.orders; renderStats(d.counts); renderOrders() }).catch(function () { });
+    api('/api/admin/orders' + qs()).then(function (d) { orders = d.orders.map(function (o) { if (!STATUS[o.status]) o.status = 'baru'; return o }); if (d.counts.dikonfirmasi) { d.counts.baru = (d.counts.baru || 0) + d.counts.dikonfirmasi; delete d.counts.dikonfirmasi } renderStats(d.counts); renderOrders() }).catch(function () { });
     $('csv').href = '/api/admin/export.csv' + qs();
   }
   function renderStats(c) {
@@ -50,6 +50,13 @@
     var t = 'Halo ' + o.nama + ', kami dari Wahyu Catering. Terima kasih sudah memesan (' + o.code + '): ' + o.paket_nama + ', ' + o.jumlah + ' porsi untuk ' + fmtDay(o.tanggal_acara) + '. ';
     return 'https://wa.me/' + o.whatsapp + '?text=' + encodeURIComponent(t);
   }
+  function thanksLink(o) {
+    var t = 'Terima kasih sudah memesan di tempat kami !\n' +
+      'Semoga suka dengan pesanannya, ya! Jangan lupa kasih bintang 5 dan ulasan di Google Maps https://share.google/WaFtjMtieEytQNxyr. ' +
+      'follow akun media sosial kami juga ya kak, supaya nggak ketinggalan promo dan penawaran menarik lainnya dari kami!\n' +
+      'Sampai ketemu di pesanan berikutnya. Senang bisa melayani Anda! Salam Hangat Seluruh tim Wahyu Catering.';
+    return 'https://wa.me/' + o.whatsapp + '?text=' + encodeURIComponent(t);
+  }
   function renderOrders() {
     $('empty').hidden = orders.length > 0;
     $('orders').innerHTML = orders.map(function (o) {
@@ -62,14 +69,24 @@
         (o.catatan ? '<dt>Catatan</dt><dd>' + esc(o.catatan) + '</dd>' : '') + '</dl>' +
         '<div class="edit"><label>Status<select data-f="status">' + Object.keys(STATUS).map(function (k) { return '<option value="' + k + '"' + (k === o.status ? ' selected' : '') + '>' + STATUS[k] + '</option>' }).join('') + '</select></label>' +
         '<label>Nominal DP (Rp)<input type="number" min="0" step="1000" data-f="dp" value="' + o.dp + '"></label><label>Catatan admin<textarea data-f="note" maxlength="500">' + esc(o.catatan_admin) + '</textarea></label></div>' +
-        '<div class="acts"><button class="btn sm" data-save="' + o.id + '">Simpan</button><button class="btn sm ghost" data-nota="dp" data-id="' + o.id + '">Invoice DP</button><button class="btn sm ghost" data-nota="lunas" data-id="' + o.id + '">Invoice Pelunasan</button><a class="btn sm wa" href="' + esc(waLink(o)) + '" target="_blank" rel="noopener">Chat pelanggan</a><button class="btn sm danger" data-del="' + o.id + '">Hapus</button></div></div></details>';
+        '<div class="acts"><button class="btn sm" data-save="' + o.id + '">Simpan</button><button class="btn sm ghost" data-nota="dp" data-id="' + o.id + '">Invoice DP</button><button class="btn sm ghost" data-nota="lunas" data-id="' + o.id + '">Invoice Pelunasan</button><a class="btn sm wa" href="' + esc(waLink(o)) + '" target="_blank" rel="noopener">Chat pelanggan</a><button class="btn sm" data-done="' + o.id + '">Selesai</button><button class="btn sm danger" data-del="' + o.id + '">Hapus</button></div></div></details>';
     }).join('');
   }
   function saveOrder(id, box) {
     return api('/api/admin/orders/' + id, { method: 'PATCH', body: { status: box.querySelector('[data-f=status]').value, catatan_admin: box.querySelector('[data-f=note]').value, dp: parseInt(box.querySelector('[data-f=dp]').value, 10) } });
   }
   $('orders').addEventListener('click', function (e) {
-    var s = e.target.closest('[data-save]'), d = e.target.closest('[data-del]'), n = e.target.closest('[data-nota]');
+    var s = e.target.closest('[data-save]'), d = e.target.closest('[data-del]'), n = e.target.closest('[data-nota]'), f = e.target.closest('[data-done]');
+    if (f) {
+      /* tandai selesai, lalu buka WhatsApp dengan ucapan terima kasih */
+      var o = orders.filter(function (x) { return String(x.id) === f.getAttribute('data-done') })[0], box = f.closest('.order');
+      if (!o) return;
+      var wa = window.open('', '_blank'), link = thanksLink(o);
+      box.querySelector('[data-f=status]').value = 'selesai';
+      saveOrder(o.id, box).then(function () { toast('Pesanan selesai'); if (wa) wa.location = link; else location.href = link; load() })
+        .catch(function (x) { if (wa) wa.close(); toast(x.message) });
+      return;
+    }
     if (s) { saveOrder(s.getAttribute('data-save'), s.closest('.order')).then(function () { toast('Tersimpan'); load() }).catch(function (x) { toast(x.message) }) }
     if (n) {
       /* simpan dulu (agar nominal DP terbaru dipakai), lalu buka nota di tab baru */

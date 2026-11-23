@@ -27,7 +27,7 @@ function buildPilihan(pkg, input) {
   return lines.join('\n');
 }
 const EVENTS = ['Pengantin', 'Aqiqah', 'Syukuran', 'Arisan', 'Ulang Tahun', 'Acara Kantor', 'Lainnya'];
-const STATUSES = ['baru', 'dikonfirmasi', 'dp_dibayar', 'selesai', 'batal'];
+const STATUSES = ['baru', 'dp_dibayar', 'selesai', 'batal'];
 const MIN_PORSI = 100;
 const TZ_OFFSET_HOURS = 8; /* WITA (Luwu, Sulawesi Selatan). Worker berjalan di UTC, jadi "hari ini" dihitung manual. */
 

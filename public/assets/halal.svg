@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-label="Halal">
+  <circle cx="60" cy="60" r="56" fill="#0b7a3b" stroke="#fff" stroke-width="4"/>
+  <circle cx="60" cy="60" r="47" fill="none" stroke="#fff" stroke-width="1.5"/>
+  <text x="60" y="64" text-anchor="middle" font-family="Amiri, 'Noto Naskh Arabic', 'Traditional Arabic', serif" font-size="34" font-weight="700" fill="#fff">حلال</text>
+  <text x="60" y="88" text-anchor="middle" font-family="DM Sans, Arial, sans-serif" font-size="15" font-weight="700" letter-spacing="3" fill="#fff">HALAL</text>
+</svg>

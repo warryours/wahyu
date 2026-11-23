@@ -1866,3 +1866,84 @@ body.modal-open {
 .faq details { border-bottom: 1px solid rgba(128, 15, 25, 0.18); padding: 14px 0; }
 .faq summary { cursor: pointer; font-weight: 700; }
 .faq details p { margin-top: 8px; }
+
+/* Logo halal di hero */
+.hero-halal {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 0 0 6px;
+}
+.hero-halal img {
+  width: 64px;
+  height: 64px;
+  flex: none;
+  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.35));
+}
+.hero-halal span {
+  font-size: 0.9rem;
+  opacity: 0.9;
+  max-width: 220px;
+  line-height: 1.35;
+}
+@media (max-width: 640px) {
+  .hero-halal img {
+    width: 52px;
+    height: 52px;
+  }
+}
+
+/* Katalog nasi kotak (memakai gaya .cat-card) */
+.nk-grid {
+  grid-template-columns: repeat(3, 1fr);
+}
+.nk-card .cat-img {
+  font-size: 0;
+}
+.nk-card .nk-body {
+  padding: 12px 14px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+}
+.nk-card h3 {
+  padding: 0;
+}
+.nk-card .nk-tag {
+  font-size: 0.8rem;
+  color: #6b4a45;
+}
+.nk-card .nk-price {
+  font-weight: 700;
+  color: var(--burgundy);
+  font-size: 1.05rem;
+}
+.nk-card .nk-price small {
+  font-weight: 400;
+  font-size: 0.78rem;
+  color: #6b4a45;
+}
+.nk-card .btn {
+  margin-top: auto;
+  padding: 8px 14px;
+  font-size: 0.9rem;
+}
+.nk-card .nk-badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 1;
+  background: var(--gold);
+  color: var(--burgundy-dark);
+  font-family: var(--sans);
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 999px;
+}
+@media (max-width: 640px) {
+  .nk-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}

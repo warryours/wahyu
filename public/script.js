@@ -74,6 +74,17 @@
       '</div>';
     });
   }
+  function renderNasiKotak() {
+    var g = document.getElementById('nk-grid'); if (!g) return;
+    g.innerHTML = NASIKOTAK.map(function (p) {
+      var img = p.image || 'assets/nasibox.jpg';
+      return '<article class="cat-card nk-card"><div class="cat-img">' + (p.badge ? '<span class="nk-badge">' + esc(p.badge) + '</span>' : '') +
+        '<img src="' + esc(ROOT + img) + '" alt="' + esc(p.name) + '" loading="lazy" onerror="this.remove()"></div>' +
+        '<div class="nk-body"><h3>' + esc(p.name) + '</h3>' + (p.tag ? '<span class="nk-tag">' + esc(p.tag) + '</span>' : '') +
+        '<div class="nk-price">' + rp(p.price) + ' <small>per porsi</small></div>' +
+        '<button type="button" class="btn btn-out" data-order data-package="' + esc(p.id) + '">Pesan</button></div></article>';
+    }).join('');
+  }
   document.querySelectorAll('.chips .chip').forEach(function (c) {
     c.addEventListener('click', function () { curCat = c.getAttribute('data-cat'); renderPackages() });
   });
@@ -149,7 +160,12 @@
     var t = ['Halo Wahyu Catering, saya ingin memesan.', 'No. Pesanan: ' + code, '', 'Nama: ' + d.nama, 'WhatsApp: ' + d.whatsapp, 'Alamat: ' + d.alamat,
       'Jenis acara: ' + d.acara, 'Paket: ' + p.name + (p.tag ? ' (' + p.tag + ')' : '') + ' - ' + rp(p.price) + ' per porsi',
       'Jumlah pesanan: ' + d.jumlah + ' porsi', 'Tanggal acara: ' + tgl];
-    var pt = pilihanText(p); if (pt.length) { t.push('Pilihan menu:'); pt.forEach(function (x) { t.push('- ' + x) }) }
+    t.push('', 'Isi paket:');
+    p.items.forEach(function (i) {
+      var chosen = (sel[i.name] || [])[0];
+      if (optsOf(i)) t.push('- ' + i.name + ': ' + (chosen || '(belum dipilih, dibahas via WhatsApp)'));
+      else t.push('- ' + i.name + (i.note ? ' (' + i.note + ')' : ''));
+    });
     if (d.catatan) t.push('Catatan: ' + d.catatan);
     var url = 'https://wa.me/' + WA + '?text=' + encodeURIComponent(t.join('\n'));
     show('<h2>Pesanan Tersimpan</h2><p class="sub">Nomor pesanan Anda:</p><div class="pp">' + esc(code) + '</div>' +
@@ -251,6 +267,7 @@
       PRASMANAN = d.prasmanan; NASIKOTAK = d.nasikotak; MENU = d.menu; BONUS = d.bonus;
       ALL = PRASMANAN.concat(NASIKOTAK);
       renderPackages(); renderTerms();
+      renderNasiKotak();
     }).catch(function () {
       document.querySelectorAll('[data-packages]').forEach(function (el) {
         el.innerHTML = '<p class="price-note">Daftar paket gagal dimuat. Muat ulang halaman atau hubungi kami lewat WhatsApp.</p>';
