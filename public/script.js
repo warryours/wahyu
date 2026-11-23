@@ -24,9 +24,15 @@
   var curCat = 'prasmanan';
 
   function menuOf(it) { return it.menu ? (MENU.filter(function (x) { return x.key === it.menu })[0] || null) : null }
-  function groupsOf(it) { var m = menuOf(it); return m && m.groups ? m.groups : null }
+  function groupsOf(it) {
+    var m = menuOf(it); if (!m || !m.groups) return null;
+    var ex = it.excludeGroups || [];
+    return m.groups.filter(function (x) { return ex.indexOf(x.label) === -1 });
+  }
   function optsOf(it) {
     var o = it.options || (menuOf(it) || {}).options || null;
+    var g = groupsOf(it);
+    if (o && g && it.excludeGroups) o = [].concat.apply([], g.map(function (x) { return x.options }));
     if (o && it.exclude) o = o.filter(function (x) { return it.exclude.indexOf(x) === -1 });
     return o;
   }
