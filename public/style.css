@@ -1874,21 +1874,25 @@ body.modal-open {
   gap: 12px;
   margin: 0 0 6px;
 }
+
 .hero-halal img {
-  width: 64px;
+  width: auto;
   height: 64px;
   flex: none;
+  object-fit: contain;
   filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.35));
 }
+
 .hero-halal span {
   font-size: 0.9rem;
   opacity: 0.9;
   max-width: 220px;
   line-height: 1.35;
 }
+
 @media (max-width: 640px) {
   .hero-halal img {
-    width: 52px;
+    width: auto;
     height: 52px;
   }
 }
